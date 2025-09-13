@@ -19812,15 +19812,19 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4335157639803988956, guid: 079d8e1325f92924690275cc28f21b1b,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1503772707}
+    - targetCorrespondingSourceObject: {fileID: 4335157639803988956, guid: 079d8e1325f92924690275cc28f21b1b,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1503772702}
     - targetCorrespondingSourceObject: {fileID: 4335157639803988956, guid: 079d8e1325f92924690275cc28f21b1b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1503772705}
+      addedObject: {fileID: 1503772701}
     - targetCorrespondingSourceObject: {fileID: 4335157639803988956, guid: 079d8e1325f92924690275cc28f21b1b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1503772701}
+      addedObject: {fileID: 1503772706}
   m_SourcePrefab: {fileID: 100100000, guid: 079d8e1325f92924690275cc28f21b1b, type: 3}
 --- !u!4 &1503772694 stripped
 Transform:
@@ -19898,7 +19902,7 @@ MonoBehaviour:
   knockbackForce: 5
   recoveryTime: 2
   hurt: 0
---- !u!114 &1503772705
+--- !u!114 &1503772706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19907,11 +19911,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503772695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ae2830de0d31f4fb07bb464d9beafd, type: 3}
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  left: 97
-  right: 100
+  m_Actions: {fileID: -944628639613478452, guid: ffdc8182e00860643a5cb7c618fb745b,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1503772707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503772695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c409afe218b6ed845b7217f826481415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   isMoving: 1
   groundCheck: {fileID: 183228153}
   groundLayers:

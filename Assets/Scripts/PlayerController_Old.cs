@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace SkiGame
 {
@@ -8,7 +7,7 @@ namespace SkiGame
     /// </summary>
     /// <remarks>This class is responsible for handling player interactions and updating the player's state   
     /// during each frame. Attach this script to a GameObject to enable player control functionality.</remarks>
-    public class PlayerController : MonoBehaviour
+    public class PlayerController_Old : MonoBehaviour
     {
         [System.Serializable]
         public struct Stats
@@ -35,13 +34,19 @@ namespace SkiGame
             public int health;
         }
 
+        [Tooltip("Keyboard controls for steering left")]
+        public KeyCode left = KeyCode.A;
+        
+        [Tooltip("Keyboard controls for steering right.")]
+        public KeyCode right = KeyCode.D;
+
         [Tooltip("Is the player moving.")]
         public bool isMoving;
 
         [Tooltip("Assign the ground check game object from the player.")]
         public Transform groundCheck;
 
-        [Tooltip("Assign the ground layers from the unity.")]
+        [Tooltip("Assign the ground layers from the unity.")] 
         public LayerMask groundLayers;
 
         [Tooltip("Current player stats.")]
@@ -49,12 +54,34 @@ namespace SkiGame
 
         private Rigidbody rb;
         private Animator animator;
-        private float movementX;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
+        }
+
+        private void Update()
+        {
+            Debug.Log($"Euler Angles: {transform.rotation.eulerAngles:F0}");
+
+            if (isMoving)
+            {
+                bool isGrounded = Physics.Linecast(transform.position, groundCheck.position, groundLayers);
+
+                if (isGrounded)
+                {
+                    if (Input.GetKey(left))
+                    {
+                        TurnLeft();
+                    }
+
+                    if (Input.GetKey(right))
+                    {
+                        TurnRight();
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -64,24 +91,8 @@ namespace SkiGame
         {
             ControlSpeed();
 
-            bool isGrounded = Physics.Linecast(transform.position, groundCheck.position, groundLayers);
-
             if (isMoving)
             {
-                if (isGrounded)
-                {
-                    const float tolerance = 0.01f; // Define a small tolerance for floating-point comparison
-
-                    if (Mathf.Abs(movementX - 1) < tolerance)
-                    {
-                        TurnRight();
-                    }
-                    else if (Mathf.Abs(movementX + 1) < tolerance)
-                    {
-                        TurnLeft();
-                    }
-                }
-
                 // increase or decrease the players speed depending on how much they are facing downhill
                 float turnAngle = Mathf.Abs(180 - transform.eulerAngles.y);
                 playerStats.speed += Remap(0, 90, playerStats.turnAcceleration, -playerStats.turnDeceleration, turnAngle);
@@ -94,16 +105,6 @@ namespace SkiGame
 
             // update the Animator's state depending on our speed
             animator.SetFloat("playerSpeed", playerStats.speed);
-        }
-
-        /// <summary>
-        /// Uses unity's new input system to get the player's movement input.
-        /// </summary>
-        /// <param name="movementValue"></param>
-        private void OnMove(InputValue movementValue)
-        {
-            Vector2 movementVector = movementValue.Get<Vector2>();
-            movementX = movementVector.x;// Horizontal movement , 1= right, -1 = left
         }
 
         private void TurnLeft()
