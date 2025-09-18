@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SkiGame
+namespace Assets.Scripts
 {
     /// <summary>
     /// Manages player input and controls within the game.
@@ -32,7 +32,8 @@ namespace SkiGame
             public float turnDeceleration;
 
             public int score;
-            public int health;
+
+            public float health;
         }
 
         [Tooltip("Is the player moving.")]
@@ -49,12 +50,20 @@ namespace SkiGame
 
         private Rigidbody rb;
         private Animator animator;
+        private PlayerDamage playerDamage;
         private float movementX;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
+            playerDamage = GetComponent<PlayerDamage>();
+        }
+
+        public void UpdateHealth(float amount)
+        {
+            playerStats.health += amount;
+            Debug.Log($"Updated health by: {amount}, Player's current Health: {playerStats.health}");
         }
 
         /// <summary>
@@ -66,7 +75,7 @@ namespace SkiGame
 
             bool isGrounded = Physics.Linecast(transform.position, groundCheck.position, groundLayers);
 
-            if (isMoving)
+            if (isMoving && !playerDamage.hurt)
             {
                 if (isGrounded)
                 {
