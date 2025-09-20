@@ -31,22 +31,34 @@ namespace Assets.Scripts
         [Tooltip("Sound played when the player hits the borders.")]
         public AudioClip borderHitSound;
 
+        [Tooltip("Sound played when the player passes correctly through a gate.")]
+        public AudioClip correctSound;
+
+        [Tooltip("Sound played when the player passes incorrectly through a gate.")]
+        public AudioClip incorrectSound;
+
         AudioSource audioSource;
 
         private void Start()
         {
             audioSource = GetComponent<AudioSource>();
-            PlayStartSound();
         }
 
         private void OnEnable()
         {
             PlayerEvents.OnPlayerHit += PlaySound;
+            GameEvents.OnCorrectPass += PlayCorrectPassSound;
+            GameEvents.OnIncorrectPass += PlayIncorrectPassSound;
+            GameEvents.OnRaceStart += PlayStartSound;
+            GameEvents.OnRaceOver += PlayStartSound;
         }
+
 
         private void OnDisable()
         {
             PlayerEvents.OnPlayerHit -= PlaySound;
+            GameEvents.OnRaceStart -= PlayStartSound;
+            GameEvents.OnRaceOver -= PlayStartSound;
         }
 
         private void PlaySound(GameObject hitObject)
@@ -72,6 +84,15 @@ namespace Assets.Scripts
             }
 
             audioSource.PlayOneShot(obstacleHitSound);
+        }
+        private void PlayCorrectPassSound()
+        {
+            audioSource.PlayOneShot(correctSound);
+        }
+
+        private void PlayIncorrectPassSound()
+        {
+            audioSource.PlayOneShot(incorrectSound);
         }
 
         public void PlaySkiSound()

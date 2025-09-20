@@ -13,6 +13,7 @@ TagManager:
   - Snowman
   - Snowball
   - Border
+  - FinishLine
   layers:
   - Default
   - TransparentFX

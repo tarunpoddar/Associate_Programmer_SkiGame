@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,6 +53,8 @@ namespace Assets.Scripts
         private Animator animator;
         private PlayerDamage playerDamage;
         private float movementX;
+        private bool raceStopped = false;
+        private bool isBoosting = false;
 
         private void Start()
         {
@@ -60,10 +63,29 @@ namespace Assets.Scripts
             playerDamage = GetComponent<PlayerDamage>();
         }
 
+        private void OnEnable()
+        {
+            GameEvents.OnRaceOver += OnRaceStopped;
+        }
+
+        private void OnRaceStopped()
+        {
+            raceStopped = true;
+        }
+
         public void UpdateHealth(float amount)
         {
             playerStats.health += amount;
             Debug.Log($"Updated health by: {amount}, Player's current Health: {playerStats.health}");
+        }
+
+        public IEnumerator BoostSpeed()
+        {
+            isBoosting = true;
+            playerStats.speed += 50f;
+            yield return new WaitForSeconds(2);
+            playerStats.speed -= 50f;
+            isBoosting = false;
         }
 
         /// <summary>
@@ -71,7 +93,12 @@ namespace Assets.Scripts
         /// </summary>
         private void FixedUpdate()
         {
-            ControlSpeed();
+            if (raceStopped) return; // Disable movement when race is stopped.
+
+            if (!isBoosting)
+            {
+                ControlSpeed();
+            }
 
             bool isGrounded = Physics.Linecast(transform.position, groundCheck.position, groundLayers);
 

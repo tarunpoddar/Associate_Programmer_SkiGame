@@ -1,7 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Manages the playback of audio effects for player-related events.
+/// </summary>
+/// <remarks>This class is responsible for playing specific sounds, such as the collision sound,  in response to
+/// player events. It subscribes to relevant events during its lifecycle  and ensures the appropriate audio is played
+/// when those events occur.</remarks>
 public class PlayerSounds : MonoBehaviour
 {
     [Tooltip("Sound to play when the player character is hit")]
