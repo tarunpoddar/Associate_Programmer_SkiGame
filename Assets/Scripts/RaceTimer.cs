@@ -15,7 +15,9 @@ namespace Assets.Scripts
         [Tooltip("Time penalty in seconds for incorrect passes.")]
         public float timePenalty = 3f;
 
-        private float raceTime;
+        [Tooltip("Current Race Time in seconds.")]
+        public static float raceTime;
+
         private float timeOffset; // Accumulates manual adjustments
         private bool raceActive = false;
         private Stopwatch watch;
