@@ -68,6 +68,11 @@ namespace Assets.Scripts
             GameEvents.OnRaceOver += OnRaceStopped;
         }
 
+        private void OnDisable()
+        {
+            GameEvents.OnRaceOver -= OnRaceStopped;
+        }
+
         private void OnRaceStopped()
         {
             raceStopped = true;

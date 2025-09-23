@@ -28,17 +28,24 @@ namespace Assets.Scripts
         [Tooltip("Assign the MessageText object.")]
         public TextMeshProUGUI MessageText;
 
-
         private void Awake()
         {
             RaceOverPanel.SetActive(false);
             MessageText.gameObject.SetActive(false);
         }
 
-        private void OnEnable()
+        void OnEnable()
         {
             GameEvents.OnRaceOver += HandleRaceOver;
             GameEvents.OnIncorrectPass += HandleIncorrectPass;
+            GameEvents.OnGameRetry += HandleRetryGame;
+        }
+
+        void OnDisable()
+        {
+            GameEvents.OnRaceOver -= HandleRaceOver;
+            GameEvents.OnIncorrectPass -= HandleIncorrectPass;
+            GameEvents.OnGameRetry -= HandleRetryGame;
         }
 
         private void HandleIncorrectPass()
@@ -55,11 +62,6 @@ namespace Assets.Scripts
             MessageText.gameObject.SetActive(false);
         }
 
-        private void OnDisable()
-        {
-            GameEvents.OnRaceOver -= HandleRaceOver;
-        }
-
         private void Update()
         {
             RaceTimeText.text = $"Time: {RaceTimer.raceTime:F0} sec";
@@ -70,6 +72,12 @@ namespace Assets.Scripts
             FinalRaceTimeText.text = $"Race Time: {RaceTimer.raceTime:F2} sec";
             RaceOverPanel.SetActive(true);
             RaceActivePanel.SetActive(false);
+        }
+
+        private void HandleRetryGame()
+        {
+            Debug.Log("Game is being retried..");
+            RaceOverPanel.SetActive(false);
         }
     }
 }

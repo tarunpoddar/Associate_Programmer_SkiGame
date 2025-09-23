@@ -37,11 +37,16 @@ namespace Assets.Scripts
         [Tooltip("Sound played when the player passes incorrectly through a gate.")]
         public AudioClip incorrectSound;
 
-        AudioSource audioSource;
+        private AudioSource audioSource;
 
         private void Start()
         {
             audioSource = GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                Debug.LogError("AudioSource component not found on the GameObject.");
+            }
         }
 
         private void OnEnable()
@@ -53,18 +58,17 @@ namespace Assets.Scripts
             GameEvents.OnRaceOver += PlayStartSound;
         }
 
-
         private void OnDisable()
         {
             PlayerEvents.OnPlayerHit -= PlaySound;
             GameEvents.OnRaceStart -= PlayStartSound;
             GameEvents.OnRaceOver -= PlayStartSound;
+            GameEvents.OnCorrectPass -= PlayCorrectPassSound;
+            GameEvents.OnIncorrectPass -= PlayIncorrectPassSound;
         }
 
         private void PlaySound(GameObject hitObject)
         {
-            Debug.Log($"Player hit {hitObject.tag}");
-
             if (hitObject.CompareTag("Tree"))
             {
                 audioSource.PlayOneShot(treeHitSound);
@@ -85,6 +89,7 @@ namespace Assets.Scripts
 
             audioSource.PlayOneShot(obstacleHitSound);
         }
+
         private void PlayCorrectPassSound()
         {
             audioSource.PlayOneShot(correctSound);
