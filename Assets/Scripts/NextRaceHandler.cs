@@ -19,6 +19,5 @@ namespace Assets.Scripts
         {
             SceneManager.LoadScene("Level2_Scene");
         }
-
     }
 }
