@@ -29,7 +29,7 @@ namespace Assets.Scripts
 
         private void OnRetryButtonClick()
         {
-            GameEvents.RetryGame();
+            GameEvents.InvokeRetryRace();
             transitionAnimator.StartFadeOut();
             StartCoroutine(ReloadAfterDelay());
         }

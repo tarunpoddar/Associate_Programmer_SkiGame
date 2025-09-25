@@ -55,14 +55,14 @@ namespace Assets.Scripts
             GameEvents.OnCorrectPass += PlayCorrectPassSound;
             GameEvents.OnIncorrectPass += PlayIncorrectPassSound;
             GameEvents.OnRaceStart += PlayStartSound;
-            GameEvents.OnRaceOver += PlayStartSound;
+            GameEvents.OnRaceStop += PlayStartSound;
         }
 
         private void OnDisable()
         {
             PlayerEvents.OnPlayerHit -= PlaySound;
             GameEvents.OnRaceStart -= PlayStartSound;
-            GameEvents.OnRaceOver -= PlayStartSound;
+            GameEvents.OnRaceStop -= PlayStartSound;
             GameEvents.OnCorrectPass -= PlayCorrectPassSound;
             GameEvents.OnIncorrectPass -= PlayIncorrectPassSound;
         }

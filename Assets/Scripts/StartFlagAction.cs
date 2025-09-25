@@ -23,7 +23,7 @@ namespace Assets.Scripts
             if (other.CompareTag("Player"))
             {
                 correctPass = true;
-                GameEvents.StartRace();
+                GameEvents.InvokeRaceStart();
             }
         }
 
@@ -32,7 +32,7 @@ namespace Assets.Scripts
             if (!correctPass && player.transform.position.z < transform.position.z)
             {
                 // Perform actions for incorrect pass
-                GameEvents.IncorrectPass();
+                GameEvents.InvokeIncorrectPass();
                 correctPass = true; // Prevent multiple triggers
             }
         }

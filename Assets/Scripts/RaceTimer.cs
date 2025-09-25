@@ -31,14 +31,14 @@ namespace Assets.Scripts
         private void OnEnable()
         {
             GameEvents.OnRaceStart += StartRace;
-            GameEvents.OnRaceOver += StopRace;
+            GameEvents.OnRaceStop += StopRace;
             GameEvents.OnIncorrectPass += AddSeconds;
         }
 
         private void OnDisable()
         {
             GameEvents.OnRaceStart -= StartRace;
-            GameEvents.OnRaceOver -= StopRace;
+            GameEvents.OnRaceStop -= StopRace;
             GameEvents.OnIncorrectPass -= AddSeconds;
         }
 

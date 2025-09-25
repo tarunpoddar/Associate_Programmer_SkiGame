@@ -1623,8 +1623,8 @@ GameObject:
   - component: {fileID: 260732593}
   - component: {fileID: 260732594}
   - component: {fileID: 260732595}
-  - component: {fileID: 260732596}
   - component: {fileID: 260732598}
+  - component: {fileID: 260732599}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1705,19 +1705,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextRaceButton: {fileID: 798955437}
   nextSceneName: Level2_Scene
---- !u!114 &260732596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260732590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90fe8bf778121845a0c71a6608267d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QuitGameButton: {fileID: 1224699509}
 --- !u!114 &260732598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1731,6 +1718,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeAnimator: {fileID: 290572641}
+--- !u!114 &260732599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260732590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90fe8bf778121845a0c71a6608267d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuitGameButton: {fileID: 1224699509}
 --- !u!1001 &270251076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15067,6 +15067,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1658227801}
     m_Modifications:
+    - target: {fileID: 6564981166389357953, guid: 49ee210ac0510844d8da858708681a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 260732590}
+    - target: {fileID: 6564981166389357953, guid: 49ee210ac0510844d8da858708681a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6564981166389357954, guid: 49ee210ac0510844d8da858708681a45,
         type: 3}
       propertyPath: m_Color.b

@@ -12,13 +12,13 @@ namespace Assets.Scripts
     {
         protected void PassAction()
         {
-            GameEvents.CorrectPass();
+            GameEvents.InvokeCorrectPass();
             GetComponent<Renderer>().material.color = Color.green;
         }
 
         protected void FailAction()
         {
-            GameEvents.IncorrectPass();
+            GameEvents.InvokeIncorrectPass();
             GetComponent<Renderer>().material.color = Color.black;
         }
     }

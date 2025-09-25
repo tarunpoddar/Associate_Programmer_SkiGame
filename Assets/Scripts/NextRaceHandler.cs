@@ -33,7 +33,7 @@ namespace Assets.Scripts
         // Show transition animation and Load level 2 scene.
         private void OnNextRaceButtonClick()
         {
-            GameEvents.NextRace();
+            GameEvents.InvokeNextLevel();
             transitionAnimator.StartFadeOut();
             StartCoroutine(LoadSceneAfterFade());
         }

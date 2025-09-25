@@ -15,14 +15,12 @@ namespace Assets.Scripts
 
         private static void QuitGame()
         {
-            Debug.Log("QuitGameHandler: Quitting the game.");
             Application.Quit();
 
             // If running in the Unity Editor, stop playing
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
-
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -43,19 +44,19 @@ namespace Assets.Scripts
 
         void OnEnable()
         {
-            GameEvents.OnRaceOver += HandleRaceOver;
+            GameEvents.OnRaceStop += HandleRaceOver;
             GameEvents.OnIncorrectPass += HandleIncorrectPass;
-            GameEvents.OnRetryGame += HandleGameTransition;
-            GameEvents.OnNextRace += HandleGameTransition;
+            GameEvents.OnRetryRace += HandleGameTransition;
+            GameEvents.OnNextLevel += HandleGameTransition;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         void OnDisable()
         {
-            GameEvents.OnRaceOver -= HandleRaceOver;
+            GameEvents.OnRaceStop -= HandleRaceOver;
             GameEvents.OnIncorrectPass -= HandleIncorrectPass;
-            GameEvents.OnRetryGame -= HandleGameTransition;
-            GameEvents.OnNextRace -= HandleGameTransition;
+            GameEvents.OnRetryRace -= HandleGameTransition;
+            GameEvents.OnNextLevel -= HandleGameTransition;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 

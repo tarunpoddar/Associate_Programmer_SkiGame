@@ -11,8 +11,8 @@
         public delegate void RaceStartAction();
         public static event RaceStartAction OnRaceStart;
 
-        public delegate void RaceOverAction();
-        public static event RaceOverAction OnRaceOver;
+        public delegate void RaceStopAction();
+        public static event RaceStopAction OnRaceStop;
 
         public delegate void CorrectPassAction();
         public static event CorrectPassAction OnCorrectPass;
@@ -20,40 +20,46 @@
         public delegate void IncorrectPassAction();
         public static event IncorrectPassAction OnIncorrectPass;
 
-        public delegate void RetryGameAction();
-        public static event RetryGameAction OnRetryGame;
+        public delegate void RetryRaceAction();
+        public static event RetryRaceAction OnRetryRace;
 
-        public delegate void NextRaceAction();
-        public static event NextRaceAction OnNextRace;
+        public delegate void NextLevelAction();
+        public static event NextLevelAction OnNextLevel;
 
-        public static void StartRace()
+        public static void InvokeRaceStart()
         {
-            OnRaceStart?.Invoke();
+            if (OnRaceStart != null)
+                OnRaceStart?.Invoke();
         }
 
-        public static void EndRace()
+        public static void InvokeRaceStop()
         {
-            OnRaceOver?.Invoke();
+            if (OnRaceStop != null)
+                OnRaceStop?.Invoke();
         }
 
-        public static void CorrectPass()
+        public static void InvokeCorrectPass()
         {
-            OnCorrectPass?.Invoke();
+            if (OnCorrectPass != null)
+                OnCorrectPass?.Invoke();
         }
 
-        public static void IncorrectPass()
+        public static void InvokeIncorrectPass()
         {
-            OnIncorrectPass?.Invoke();
+            if (OnIncorrectPass != null)
+                OnIncorrectPass?.Invoke();
         }
 
-        public static void RetryGame()
+        public static void InvokeRetryRace()
         {
-            OnRetryGame?.Invoke();
+            if (OnRetryRace != null)
+                OnRetryRace?.Invoke();
         }
 
-        public static void NextRace()
+        public static void InvokeNextLevel()
         {
-            OnNextRace?.Invoke();
+            if (OnNextLevel != null)
+                OnNextLevel?.Invoke();
         }
     }
 }
