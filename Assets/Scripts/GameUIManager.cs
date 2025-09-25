@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +19,9 @@ namespace Assets.Scripts
 
         [Tooltip("Assign the Race Active UI panel.")]
         public GameObject RaceActivePanel;
+
+        [Tooltip("Panel that appears when the QuitGame button is pressed.")]
+        public GameObject QuitGamePanel;
 
         [Tooltip("Assign the FinalRaceTimeText object.")]
         public TextMeshProUGUI FinalRaceTimeText;
@@ -48,6 +50,8 @@ namespace Assets.Scripts
             GameEvents.OnIncorrectPass += HandleIncorrectPass;
             GameEvents.OnRetryRace += HandleGameTransition;
             GameEvents.OnNextLevel += HandleGameTransition;
+            GameEvents.OnQuitGame += HandleQuitGame;
+            GameEvents.OnQuitGameCancel += HandleQuitGameCancel;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -57,6 +61,8 @@ namespace Assets.Scripts
             GameEvents.OnIncorrectPass -= HandleIncorrectPass;
             GameEvents.OnRetryRace -= HandleGameTransition;
             GameEvents.OnNextLevel -= HandleGameTransition;
+            GameEvents.OnQuitGame -= HandleQuitGame;
+            GameEvents.OnQuitGameCancel -= HandleQuitGameCancel;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
@@ -97,6 +103,16 @@ namespace Assets.Scripts
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             loadingText.gameObject.SetActive(false);
+        }
+
+        private void HandleQuitGame()
+        {
+            QuitGamePanel.SetActive(true);
+        }
+
+        private void HandleQuitGameCancel()
+        {
+            QuitGamePanel.SetActive(false);
         }
     }
 }

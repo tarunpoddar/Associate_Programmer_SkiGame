@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject overlayScreen;
     //The Scene Build Index for our next level
     public int nextScendIndex;
-
 
     private void OnEnable()
     {
@@ -58,14 +56,12 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ChangeLevel());
     }
 
-
     private IEnumerator ChangeLevel()
     {
         overlayScreen.GetComponent<Image>().CrossFadeAlpha(1, 1, false);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nextScendIndex);
     }
-
 
     private IEnumerator ShutDownGame()
     {

@@ -26,6 +26,12 @@
         public delegate void NextLevelAction();
         public static event NextLevelAction OnNextLevel;
 
+        public delegate void QuitGameAction();
+        public static event QuitGameAction OnQuitGame;
+
+        public delegate void QuitGameCancelAction();
+        public static event QuitGameCancelAction OnQuitGameCancel;
+
         public static void InvokeRaceStart()
         {
             if (OnRaceStart != null)
@@ -60,6 +66,18 @@
         {
             if (OnNextLevel != null)
                 OnNextLevel?.Invoke();
+        }
+
+        public static void InvokeQuitGame()
+        {
+            if (OnQuitGame != null)
+                OnQuitGame?.Invoke();
+        }
+
+        public static void InvokeQuitGameCancel()
+        {
+            if (OnQuitGameCancel != null)
+                OnQuitGameCancel?.Invoke();
         }
     }
 }
