@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,44 +10,34 @@ namespace Assets.Scripts
         [Tooltip("Button to retry the game.")]
         private UnityEngine.UI.Button retryButton;
 
-        [SerializeField]
-        [Tooltip("Text to display loading progress.")]
-        private TextMeshProUGUI loadingText;
-
-        void Awake()
-        {
-            retryButton.onClick.AddListener(OnRetryButtonClick);
-            loadingText.text = "Loading...";
-            loadingText.gameObject.SetActive(false);
-        }
+        private TransitionAnimator transitionAnimator;
 
         void OnEnable()
         {
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            retryButton.onClick.AddListener(OnRetryButtonClick);
         }
 
         void OnDisable()
         {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
+            retryButton.onClick.RemoveListener(OnRetryButtonClick);
+        }
+
+        private void Start()
+        {
+            transitionAnimator = GetComponent<TransitionAnimator>();
         }
 
         private void OnRetryButtonClick()
         {
             GameEvents.RetryGame();
-            // Optionally delay the reload to allow destruction effects
-            StartCoroutine(ReloadAfterDelay(1f));
+            transitionAnimator.StartFadeOut();
+            StartCoroutine(ReloadAfterDelay());
         }
 
-        private IEnumerator ReloadAfterDelay(float delay)
+        private static IEnumerator ReloadAfterDelay()
         {
-            loadingText.gameObject.SetActive(true);
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(1.5f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
-        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            loadingText.gameObject.SetActive(false);
         }
     }
 }

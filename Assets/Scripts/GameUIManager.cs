@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
@@ -28,24 +29,34 @@ namespace Assets.Scripts
         [Tooltip("Assign the MessageText object.")]
         public TextMeshProUGUI MessageText;
 
+        [SerializeField]
+        [Tooltip("Text to display loading progress.")]
+        private TextMeshProUGUI loadingText;
+
         private void Awake()
         {
             RaceOverPanel.SetActive(false);
             MessageText.gameObject.SetActive(false);
+            loadingText.text = "Loading...";
+            loadingText.gameObject.SetActive(false);
         }
 
         void OnEnable()
         {
             GameEvents.OnRaceOver += HandleRaceOver;
             GameEvents.OnIncorrectPass += HandleIncorrectPass;
-            GameEvents.OnGameRetry += HandleRetryGame;
+            GameEvents.OnRetryGame += HandleGameTransition;
+            GameEvents.OnNextRace += HandleGameTransition;
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         void OnDisable()
         {
             GameEvents.OnRaceOver -= HandleRaceOver;
             GameEvents.OnIncorrectPass -= HandleIncorrectPass;
-            GameEvents.OnGameRetry -= HandleRetryGame;
+            GameEvents.OnRetryGame -= HandleGameTransition;
+            GameEvents.OnNextRace -= HandleGameTransition;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         private void HandleIncorrectPass()
@@ -74,10 +85,17 @@ namespace Assets.Scripts
             RaceActivePanel.SetActive(false);
         }
 
-        private void HandleRetryGame()
+        private void HandleGameTransition()
         {
-            Debug.Log("Game is being retried..");
+            Debug.Log("Game is being transited..");
             RaceOverPanel.SetActive(false);
+
+            loadingText.gameObject.SetActive(true);
+        }
+
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            loadingText.gameObject.SetActive(false);
         }
     }
 }

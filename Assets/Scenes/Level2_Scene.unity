@@ -4658,9 +4658,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1114566709}
-  - component: {fileID: 1114566712}
-  - component: {fileID: 1114566711}
-  - component: {fileID: 1114566710}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4683,50 +4680,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1114566710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114566708}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9368a984b5d39841a961fe0a86c6776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  retryButton: {fileID: 0}
-  loadingText: {fileID: 0}
---- !u!114 &1114566711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114566708}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bcd213ccf06df948a6ae510bf4c59f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RaceOverPanel: {fileID: 0}
-  RaceActivePanel: {fileID: 0}
-  FinalRaceTimeText: {fileID: 0}
-  RaceTimeText: {fileID: 0}
-  MessageText: {fileID: 0}
---- !u!114 &1114566712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114566708}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75074bbdaeb84f145b6a384290a261d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timePenalty: 3
 --- !u!43 &1127815262
 Mesh:
   m_ObjectHideFlags: 0

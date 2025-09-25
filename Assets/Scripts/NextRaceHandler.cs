@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -9,15 +10,38 @@ namespace Assets.Scripts
         [Tooltip("Button to start the next race")]
         public Button NextRaceButton;
 
-        private void Start()
+        [Tooltip("The next scene name to be loaded")]
+        public string nextSceneName;
+        
+        private TransitionAnimator transitionAnimator;
+
+        private void OnEnable()
         {
-            NextRaceButton.onClick.AddListener(LoadNextRace);
+            NextRaceButton.onClick.AddListener(OnNextRaceButtonClick);
         }
 
-        // Unload Level1_Scene and load Level2_Scene
-        private static void LoadNextRace()
+        private void OnDisable()
         {
-            SceneManager.LoadScene("Level2_Scene");
+            NextRaceButton.onClick.RemoveListener(OnNextRaceButtonClick);
+        }
+
+        private void Start()
+        {
+            transitionAnimator = GetComponent<TransitionAnimator>();
+        }
+
+        // Show transition animation and Load level 2 scene.
+        private void OnNextRaceButtonClick()
+        {
+            GameEvents.NextRace();
+            transitionAnimator.StartFadeOut();
+            StartCoroutine(LoadSceneAfterFade());
+        }
+
+        IEnumerator LoadSceneAfterFade()
+        {
+            yield return new WaitForSeconds(1.5f); // Match fade duration
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 }

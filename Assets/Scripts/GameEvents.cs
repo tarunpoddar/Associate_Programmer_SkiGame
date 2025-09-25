@@ -20,8 +20,11 @@
         public delegate void IncorrectPassAction();
         public static event IncorrectPassAction OnIncorrectPass;
 
-        public delegate void GameRetryAction();
-        public static event GameRetryAction OnGameRetry;
+        public delegate void RetryGameAction();
+        public static event RetryGameAction OnRetryGame;
+
+        public delegate void NextRaceAction();
+        public static event NextRaceAction OnNextRace;
 
         public static void StartRace()
         {
@@ -45,7 +48,12 @@
 
         public static void RetryGame()
         {
-            OnGameRetry?.Invoke();
+            OnRetryGame?.Invoke();
+        }
+
+        public static void NextRace()
+        {
+            OnNextRace?.Invoke();
         }
     }
 }
