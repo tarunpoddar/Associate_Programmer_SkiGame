@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +8,6 @@ public class Leaderboard : MonoBehaviour
     public string[] formattedTimes;
     private List<float> savedTimes = new List<float>(new float[5]);
  
-
     private void OnEnable()
     {
         GameEvents.OnRaceStop += CheckRaceTime; 

@@ -32,6 +32,12 @@ namespace Assets.Scripts
         [Tooltip("Assign the MessageText object.")]
         public TextMeshProUGUI MessageText;
 
+        [Tooltip("Assign the TotalRaceCompletedText object.")]
+        public TextMeshProUGUI TotalRaceCompletedText;
+
+        [Tooltip("Assign the TimeDataText object.")]
+        public TextMeshProUGUI TimeDataText;
+
         [SerializeField]
         [Tooltip("Text to display loading progress.")]
         private TextMeshProUGUI loadingText;
@@ -48,8 +54,8 @@ namespace Assets.Scripts
         {
             GameEvents.OnRaceStop += HandleRaceOver;
             GameEvents.OnIncorrectPass += HandleIncorrectPass;
-            GameEvents.OnRetryRace += HandleGameTransition;
-            GameEvents.OnNextLevel += HandleGameTransition;
+            GameEvents.OnRetryRace += HandleRetryRace;
+            GameEvents.OnNextLevel += HandleNextLevel;
             GameEvents.OnQuitGame += HandleQuitGame;
             GameEvents.OnQuitGameCancel += HandleQuitGameCancel;
             SceneManager.sceneLoaded += OnSceneLoaded;
@@ -59,8 +65,8 @@ namespace Assets.Scripts
         {
             GameEvents.OnRaceStop -= HandleRaceOver;
             GameEvents.OnIncorrectPass -= HandleIncorrectPass;
-            GameEvents.OnRetryRace -= HandleGameTransition;
-            GameEvents.OnNextLevel -= HandleGameTransition;
+            GameEvents.OnRetryRace -= HandleRetryRace;
+            GameEvents.OnNextLevel -= HandleNextLevel;
             GameEvents.OnQuitGame -= HandleQuitGame;
             GameEvents.OnQuitGameCancel -= HandleQuitGameCancel;
             SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -88,15 +94,26 @@ namespace Assets.Scripts
         private void HandleRaceOver()
         {
             FinalRaceTimeText.text = $"Race Time: {RaceTimer.raceTime:F2} sec";
+            TotalRaceCompletedText.text = $"Races Completed: {RaceDataManager.Instance.GetTotalRacesCompleted().ToString()}";
+
             RaceOverPanel.SetActive(true);
             RaceActivePanel.SetActive(false);
         }
 
-        private void HandleGameTransition()
+        private void FixedUpdate()
         {
-            Debug.Log("Game is being transited..");
-            RaceOverPanel.SetActive(false);
+            TimeDataText.text = string.Join("\n", LeaderboardManager.FormattedTimes);
+        }
 
+        private void HandleNextLevel()
+        {
+            RaceDataManager.Instance.IncrementRaceCount();
+            HandleRetryRace();
+        }
+
+        private void HandleRetryRace()
+        {
+            RaceOverPanel.SetActive(false);
             loadingText.gameObject.SetActive(true);
         }
 

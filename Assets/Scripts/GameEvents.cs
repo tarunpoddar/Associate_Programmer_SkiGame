@@ -14,6 +14,9 @@
         public delegate void RaceStopAction();
         public static event RaceStopAction OnRaceStop;
 
+        public delegate void RaceTimerStoppedAction();
+        public static event RaceTimerStoppedAction OnRaceTimerStopped;
+
         public delegate void CorrectPassAction();
         public static event CorrectPassAction OnCorrectPass;
 
@@ -78,6 +81,12 @@
         {
             if (OnQuitGameCancel != null)
                 OnQuitGameCancel?.Invoke();
+        }
+
+        public static void InvokeRaceTimerStopped()
+        {
+            if (OnRaceTimerStopped != null)
+                OnRaceTimerStopped?.Invoke();
         }
     }
 }

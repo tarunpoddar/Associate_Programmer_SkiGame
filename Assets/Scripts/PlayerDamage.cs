@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -34,9 +35,15 @@ namespace Assets.Scripts
         private void OnEnable()
         {
             PlayerEvents.OnPlayerHit += TakeDamage;
+            GameEvents.OnRaceStop += HandleRaceStop;
         }
 
-        // Un Register TakeDamade will be called when an OnPlayerHit Event happens
+        private void HandleRaceStop()
+        {
+            PlayerEvents.OnPlayerHit -= TakeDamage;
+        }
+
+        // Un Register TakeDamage will be called when an OnPlayerHit Event happens
         private void OnDisable()
         {
             PlayerEvents.OnPlayerHit -= TakeDamage;
