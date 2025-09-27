@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -88,12 +89,12 @@ namespace Assets.Scripts
 
         private void Update()
         {
-            RaceTimeText.text = $"Time: {RaceTimer.raceTime:F0} sec";
+            RaceTimeText.text = $"Time: {TimeSpan.FromSeconds(Math.Round(RaceTimer.raceTime, 2)).ToString("m':'ss':'ff")} sec";
         }
 
         private void HandleRaceOver()
         {
-            FinalRaceTimeText.text = $"Race Time: {RaceTimer.raceTime:F2} sec";
+            FinalRaceTimeText.text = $"Race Time: {TimeSpan.FromSeconds(Math.Round(RaceTimer.raceTime, 2)).ToString("m':'ss':'ff")} sec";
             TotalRaceCompletedText.text = $"Races Completed: {RaceDataManager.Instance.GetTotalRacesCompleted().ToString()}";
 
             RaceOverPanel.SetActive(true);

@@ -22351,7 +22351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time : 35 sec'
+  m_text: 'Time : 0:05:67 sec'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa119a1593504b74dbd7fdbd97c16fce, type: 2}
   m_sharedMaterial: {fileID: 6376069583195539492, guid: aa119a1593504b74dbd7fdbd97c16fce,
@@ -22386,7 +22386,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -22417,7 +22417,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 77.882835, y: 0, z: -173.55046, w: 0}
+  m_margin: {x: -44.297516, y: 0, z: -286.1581, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -30632,15 +30632,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '35.52
+  m_text: '0:02:26
 
-    42.62
+    0:03:49
 
-    84.35
+    0:06:25
 
-    61.24
+    0:07:57
 
-    47.35'
+    0:09:31'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa119a1593504b74dbd7fdbd97c16fce, type: 2}
   m_sharedMaterial: {fileID: 6376069583195539492, guid: aa119a1593504b74dbd7fdbd97c16fce,
@@ -34321,7 +34321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Race Time : 35.52 sec'
+  m_text: 'Race Time : 0:05:48 sec'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa119a1593504b74dbd7fdbd97c16fce, type: 2}
   m_sharedMaterial: {fileID: 6376069583195539492, guid: aa119a1593504b74dbd7fdbd97c16fce,

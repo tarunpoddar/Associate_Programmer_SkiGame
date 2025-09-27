@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -50,10 +51,21 @@ namespace Assets.Scripts
             int scorePosition = int.MaxValue;
             bool highScore = false;
 
+            if (top5RaceTimes.Contains((float)Math.Round(RaceTimer.raceTime, 2)))
+            {
+                print("Time already exists!! not adding duplicate.");
+                return;
+            }
+
+            if (RaceTimer.raceTime > top5RaceTimes[top5RaceTimes.Count - 1] && top5RaceTimes[top5RaceTimes.Count - 1] > 0.0001f)
+                return;
+
             // Insert from back.
             for (int i = top5RaceTimes.Count - 1; i >= 0; i--)
             {
-                if (RaceTimer.raceTime < top5RaceTimes[i] || top5RaceTimes[i] < 0.0001f)
+                
+                if (Math.Round(RaceTimer.raceTime, 2) < Math.Round(top5RaceTimes[i], 2)
+                    || top5RaceTimes[i] < 0.0001f)
                 {
                     highScore = true;
 
@@ -64,7 +76,7 @@ namespace Assets.Scripts
 
             if (highScore)
             {
-                top5RaceTimes.Insert(scorePosition, RaceTimer.raceTime);
+                top5RaceTimes.Insert(scorePosition, (float)Math.Round(RaceTimer.raceTime, 2));
                 SetBestTimes();
             }
         }
@@ -99,8 +111,11 @@ namespace Assets.Scripts
 
             for (int i = 0; i < 5; i++)
             {
-                FormattedTimes[i] = top5RaceTimes[i].ToString("F2");
+                TimeSpan t = TimeSpan.FromSeconds(top5RaceTimes[i]);
+                FormattedTimes[i] = t.ToString("m':'ss':'ff");
             }
+
+            print(string.Join("\n", FormattedTimes));
         }
     }
 }
