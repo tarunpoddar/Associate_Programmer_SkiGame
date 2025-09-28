@@ -11,7 +11,7 @@ namespace Assets.Scripts
     /// overriding the <see cref="HitPlayer"/> method.</remarks>
     public class Obstacle: MonoBehaviour
     {
-        private void OnCollisionEnter(Collision collision)
+        public virtual void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {

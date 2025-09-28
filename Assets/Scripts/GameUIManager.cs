@@ -49,6 +49,7 @@ namespace Assets.Scripts
             MessageText.gameObject.SetActive(false);
             loadingText.text = "Loading...";
             loadingText.gameObject.SetActive(false);
+            TotalRaceCompletedText.gameObject.SetActive(false);
         }
 
         void OnEnable()
@@ -96,7 +97,7 @@ namespace Assets.Scripts
         {
             FinalRaceTimeText.text = $"Race Time: {TimeSpan.FromSeconds(Math.Round(RaceTimer.raceTime, 2)).ToString("m':'ss':'ff")} sec";
             TotalRaceCompletedText.text = $"Races Completed: {RaceDataManager.Instance.GetTotalRacesCompleted().ToString()}";
-
+            TotalRaceCompletedText.gameObject.SetActive(true);
             RaceOverPanel.SetActive(true);
             RaceActivePanel.SetActive(false);
         }

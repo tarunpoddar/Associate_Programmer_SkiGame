@@ -8,10 +8,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1696845952188708351, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931239486913377211, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2844851071358828079, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698388060816085271, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578145429816223279, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844154611655664129, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5127741935976987448, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
         type: 3}
       propertyPath: m_Name
       value: SnowmanVariant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127741935976987448, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5504162578466103682, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
         type: 3}
@@ -62,6 +97,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903269791036771309, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613310141446335021, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920682337426966350, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7513352910801137999, guid: 48d3b24eb1e2eb14ab26bf39b45b1827,
         type: 3}
