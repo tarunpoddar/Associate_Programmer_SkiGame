@@ -116,8 +116,6 @@ namespace Assets.Scripts
                 TimeSpan t = TimeSpan.FromSeconds(top5RaceTimes[i]);
                 FormattedTimes[i] = t.ToString("m':'ss':'ff");
             }
-
-            print(string.Join("\n", FormattedTimes));
         }
     }
 }

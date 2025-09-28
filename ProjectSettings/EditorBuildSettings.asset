@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1_Scene.unity
     guid: 02aacfc30cf250b4a8053f4a69e63730
+  - enabled: 0
+    path: Assets/Scenes/SkiGame_Course4_Session1_ExampleTitle.unity
+    guid: 373101305ba224d4383b116b2151cd5a
+  - enabled: 1
+    path: Assets/Scenes/Level2_Scene.unity
+    guid: 2833be9b2c69973439975841fb5d525f
+  - enabled: 0
+    path: Assets/Scenes/SkiGame_Course3_Session4_Optimization.unity
+    guid: 9a8ba000d6c97c0499ff8f5cb512095c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: ffdc8182e00860643a5cb7c618fb745b,
       type: 3}

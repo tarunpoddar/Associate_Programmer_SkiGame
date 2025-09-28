@@ -95,9 +95,12 @@ namespace Assets.Scripts
 
         private void HandleRaceOver()
         {
+            RaceDataManager.Instance.IncrementRaceCount();
+
             FinalRaceTimeText.text = $"Race Time: {TimeSpan.FromSeconds(Math.Round(RaceTimer.raceTime, 2)).ToString("m':'ss':'ff")} sec";
             TotalRaceCompletedText.text = $"Races Completed: {RaceDataManager.Instance.GetTotalRacesCompleted().ToString()}";
             TotalRaceCompletedText.gameObject.SetActive(true);
+
             RaceOverPanel.SetActive(true);
             RaceActivePanel.SetActive(false);
         }
@@ -109,7 +112,6 @@ namespace Assets.Scripts
 
         private void HandleNextLevel()
         {
-            RaceDataManager.Instance.IncrementRaceCount();
             HandleRetryRace();
         }
 

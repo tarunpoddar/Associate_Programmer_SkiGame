@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -77,6 +78,8 @@ namespace Assets.Scripts
 
             if (hitObject.CompareTag("Border"))
             {
+                string timestamp = DateTime.Now.ToString("HH:mm:ss.fff");
+                Debug.Log($"{timestamp} Playing border hit sound.");
                 audioSource.PlayOneShot(borderHitSound);
                 return;
             }

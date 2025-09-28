@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -23,12 +22,10 @@ namespace Assets.Scripts
         public bool hurt = false;
 
         private Rigidbody rb;
-        private PlayerController playerController;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
-            playerController = GetComponent<PlayerController>();
         }
 
         // Register that TakeDamage will be called when an OnPlayerHit Event happens

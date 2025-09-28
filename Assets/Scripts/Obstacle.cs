@@ -1,4 +1,5 @@
-﻿using Unity.Cinemachine;
+﻿using System;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Assets.Scripts

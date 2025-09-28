@@ -10,10 +10,12 @@ namespace Assets.Scripts
     /// defined in the base <see cref="FlagAction"/> class.</remarks>
     public class PinkFlagAction : FlagAction
     {
+        private bool flagPassed = false;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !flagPassed)
             {
+                flagPassed = true;
                 if (other.gameObject.transform.position.x < transform.position.x)
                 {
                     PassAction();

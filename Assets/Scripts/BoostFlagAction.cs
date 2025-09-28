@@ -7,10 +7,13 @@ namespace Assets.Scripts
     /// </summary>
     public class BoostFlagAction : FlagAction
     {
+        private bool flagPassed = false;
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !flagPassed)
             {
+                flagPassed = true;
                 PassAction();
                 var playerController = other.GetComponent<PlayerController>();
                 

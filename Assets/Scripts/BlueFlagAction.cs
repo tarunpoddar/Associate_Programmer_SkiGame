@@ -9,10 +9,13 @@ namespace Assets.Scripts
     /// based on their position relative to the flag when entering its trigger area.</remarks>
     public class BlueFlagAction : FlagAction
     {
+        private bool flagPassed = false;
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !flagPassed)
             {
+                flagPassed = true;
                 if (other.gameObject.transform.position.x > transform.position.x)
                 {
                     PassAction();

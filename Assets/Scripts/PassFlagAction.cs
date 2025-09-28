@@ -11,8 +11,8 @@ namespace Assets.Scripts
     /// incorrect.</remarks>
     public class PassFlagAction : MonoBehaviour
     {
-        bool correctPass = false;
         private GameObject player;
+        bool flagPassed = false;
 
         private void Start()
         {
@@ -21,22 +21,21 @@ namespace Assets.Scripts
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !flagPassed)
             {
-                correctPass = true;
+                flagPassed = true;
                 GameEvents.InvokeCorrectPass();
-                Debug.Log("Correct Pass !!");
             }
         }
 
         private void Update()
         {
-            if (!correctPass && player.transform.position.z < transform.position.z)
+            if (!flagPassed
+                && player.transform.position.z < transform.position.z)
             {
                 // Perform actions for incorrect pass
                 GameEvents.InvokeIncorrectPass();
-                Debug.Log("Incorrect Pass!");
-                correctPass = true; // Prevent multiple triggers
+                flagPassed = true; // Prevent multiple triggers
             }
         }
     }
