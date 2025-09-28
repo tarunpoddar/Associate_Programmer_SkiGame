@@ -14,6 +14,7 @@ TagManager:
   - Snowball
   - Border
   - FinishLine
+  - Slope
   layers:
   - Default
   - TransparentFX

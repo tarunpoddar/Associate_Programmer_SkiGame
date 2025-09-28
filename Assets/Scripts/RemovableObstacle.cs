@@ -9,16 +9,17 @@ namespace Assets.Scripts
     /// include destruction of the obstacle upon interaction with the player.</remarks>
     public class RemovableObstacle : Obstacle
     {
-        /// <summary>
-        /// Applies a hit to the player and destroys the current game object.
-        /// </summary>
-        /// <remarks>This method overrides the base implementation of <see cref="HitPlayer"/>.  After
-        /// invoking the base method, it destroys the game object associated with this instance.</remarks>
-        public override void HitPlayer(GameObject player, GameObject hitObject)
+        public override void OnCollisionEnter(Collision collision)
         {
-            base.HitPlayer(player, hitObject);
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                HitPlayer(collision.gameObject, gameObject);
+            }
 
-            Destroy(gameObject);
+            if (!collision.gameObject.CompareTag("Slope"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

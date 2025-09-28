@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1867245208847586878}
   - component: {fileID: 7919751024262284536}
   - component: {fileID: 5963913302363350120}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 491261291771942267}
   - component: {fileID: 5598881300411165052}
   - component: {fileID: 2224546282287839123}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Smile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 8510088107108342119}
   - component: {fileID: 6706074905833268532}
   - component: {fileID: 8101019810981223850}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: RightAr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 3996545632866108230}
   - component: {fileID: 2728731148621468357}
   - component: {fileID: 6909662922206932552}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 4284173087025818609}
   - component: {fileID: 1632476288606269780}
   - component: {fileID: 8695622677595957051}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 1722112577304620402}
   - component: {fileID: 6451570228463002386}
   - component: {fileID: 6386081816729076298}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 4019961684214005974}
   - component: {fileID: 5941478987365080252}
   - component: {fileID: 4889049522426537287}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 8259571675733670372}
   - component: {fileID: 4742129938618983515}
   - component: {fileID: 3064746705450205233}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: HatBand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 4672173165345945991}
   - component: {fileID: 3026162840469757023}
   - component: {fileID: 6534448285315679387}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 9117953069100586070}
   - component: {fileID: 4085612886327515353}
   - component: {fileID: 4277045740044521078}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Snowman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
