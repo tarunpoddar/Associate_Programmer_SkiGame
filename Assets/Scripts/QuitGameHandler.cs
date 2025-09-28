@@ -5,6 +5,9 @@ namespace Assets.Scripts
 {
     public class QuitGameHandler : MonoBehaviour
     {
+        [Tooltip("Panel that contains the QuitGame confirmation dialog.")]
+        public GameObject QuitGamePanel;
+
         [Tooltip("Button that triggers the QuitGame action.")]
         public Button QuitGameButton;
 
@@ -28,9 +31,10 @@ namespace Assets.Scripts
             QuitGameCancelButton.onClick.RemoveListener(QuitGameCancel);
         }
 
-        private static void QuitGame()
+        private void QuitGame()
         {
-            GameEvents.InvokeQuitGame();
+            QuitGamePanel.SetActive(true);// Just for quick testing
+            GameEvents.InvokeQuitGame();// Actual recommended way
         }
 
         private void QuitGameOk()
@@ -45,7 +49,8 @@ namespace Assets.Scripts
 
         private void QuitGameCancel()
         {
-            GameEvents.InvokeQuitGameCancel();
+            QuitGamePanel.SetActive(false);// Just for quick testing
+            GameEvents.InvokeQuitGameCancel();// Actual recommended way
         }
     }
 }

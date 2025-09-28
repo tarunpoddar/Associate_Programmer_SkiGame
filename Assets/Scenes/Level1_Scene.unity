@@ -1721,6 +1721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90fe8bf778121845a0c71a6608267d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QuitGamePanel: {fileID: 1969405595}
   QuitGameButton: {fileID: 1224699509}
   QuitGameOkButton: {fileID: 982740707}
   QuitGameCancelButton: {fileID: 2064324859}
@@ -19533,7 +19534,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60.638187
+  field of view: 45
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -19559,8 +19560,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123848216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000001228531, y: 0.99553996, z: -0.0943411, w: 0.000000012964145}
-  m_LocalPosition: {x: -42.5, y: 83.438, z: 880.64}
+  m_LocalRotation: {x: -0.0058041583, y: 0.9903621, z: 0.043789346, w: 0.1312698}
+  m_LocalPosition: {x: 207.70415, y: 48.573204, z: 74.25638}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
