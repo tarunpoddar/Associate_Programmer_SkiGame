@@ -17,6 +17,11 @@ namespace Assets.Scripts
         [Tooltip("Button that cancels the QuitGame action.")]
         public Button QuitGameCancelButton;
 
+        private void Start()
+        {
+            QuitGamePanel.SetActive(false);
+        }
+
         private void OnEnable()
         {
             QuitGameButton.onClick.AddListener(QuitGame);
