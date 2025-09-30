@@ -39,7 +39,7 @@ namespace Assets.Scripts
         private void QuitGame()
         {
             QuitGamePanel.SetActive(true);// Just for quick testing
-            GameEvents.InvokeQuitGame();// Actual recommended way
+            //GameEvents.InvokeQuitGame();// Actual recommended way
         }
 
         private void QuitGameOk()
@@ -55,7 +55,7 @@ namespace Assets.Scripts
         private void QuitGameCancel()
         {
             QuitGamePanel.SetActive(false);// Just for quick testing
-            GameEvents.InvokeQuitGameCancel();// Actual recommended way
+            //GameEvents.InvokeQuitGameCancel();// Actual recommended way
         }
     }
 }

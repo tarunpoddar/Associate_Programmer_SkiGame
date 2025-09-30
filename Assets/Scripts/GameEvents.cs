@@ -23,6 +23,9 @@
         public delegate void IncorrectPassAction();
         public static event IncorrectPassAction OnIncorrectPass;
 
+        public delegate void BonusPassAction();
+        public static event BonusPassAction OnBonusPass;    
+
         public delegate void RetryRaceAction();
         public static event RetryRaceAction OnRetryRace;
 
@@ -57,6 +60,12 @@
         {
             if (OnIncorrectPass != null)
                 OnIncorrectPass?.Invoke();
+        }
+
+        public static void InvokeBonusPass()
+        {
+            if (OnBonusPass != null)
+                OnBonusPass?.Invoke();
         }
 
         public static void InvokeRetryRace()

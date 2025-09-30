@@ -8,6 +8,9 @@ namespace Assets.Scripts
     {
         [Tooltip("Time penalty in seconds for incorrect passes.")]
         public float timePenalty = 3f;
+
+        [Tooltip("Time bonus in seconds for correct passes.")]
+        public float timeBonus = 1f;
         
         public static float raceTime = 0;
 
@@ -19,6 +22,7 @@ namespace Assets.Scripts
             GameEvents.OnRaceStart += StartTimer;
             GameEvents.OnRaceStop += StopTimer;
             GameEvents.OnIncorrectPass += AddPenalty;
+            GameEvents.OnCorrectPass += ReducePenalty;
         }
 
         private void OnDisable()
@@ -26,6 +30,13 @@ namespace Assets.Scripts
             GameEvents.OnRaceStart -= StartTimer;
             GameEvents.OnRaceStop -= StopTimer;
             GameEvents.OnIncorrectPass -= AddPenalty;
+            GameEvents.OnCorrectPass -= ReducePenalty;
+        }
+
+        private void ReducePenalty()
+        {
+            raceTime -= timeBonus;
+            Debug.Log($"Reduced {timeBonus:F0} seconds, current race time : {raceTime:F2}");
         }
 
         private void AddPenalty()

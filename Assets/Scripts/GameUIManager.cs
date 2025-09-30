@@ -21,9 +21,6 @@ namespace Assets.Scripts
         [Tooltip("Assign the Race Active UI panel.")]
         public GameObject RaceActivePanel;
 
-        [Tooltip("Panel that appears when the QuitGame button is pressed.")]
-        public GameObject QuitGamePanel;
-
         [Tooltip("Assign the FinalRaceTimeText object.")]
         public TextMeshProUGUI FinalRaceTimeText;
 
@@ -56,34 +53,38 @@ namespace Assets.Scripts
         {
             GameEvents.OnRaceStop += HandleRaceOver;
             GameEvents.OnIncorrectPass += HandleIncorrectPass;
+            GameEvents.OnBonusPass += HandleBonusPass;
             GameEvents.OnRetryRace += HandleRetryRace;
             GameEvents.OnNextLevel += HandleNextLevel;
-            GameEvents.OnQuitGame += HandleQuitGame;
-            GameEvents.OnQuitGameCancel += HandleQuitGameCancel;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
-
+       
         void OnDisable()
         {
             GameEvents.OnRaceStop -= HandleRaceOver;
             GameEvents.OnIncorrectPass -= HandleIncorrectPass;
+            GameEvents.OnBonusPass -= HandleBonusPass;
             GameEvents.OnRetryRace -= HandleRetryRace;
             GameEvents.OnNextLevel -= HandleNextLevel;
-            GameEvents.OnQuitGame -= HandleQuitGame;
-            GameEvents.OnQuitGameCancel -= HandleQuitGameCancel;
             SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void HandleBonusPass()
+        {
+            MessageText.color = Color.green;
+            StartCoroutine(ShowMessage("Bonus Pass! -1s"));
         }
 
         private void HandleIncorrectPass()
         {
             MessageText.color = Color.red;
-            StartCoroutine(ShowMessage());
+            StartCoroutine(ShowMessage("Incorrect Pass! +3s"));
         }
 
-        private IEnumerator ShowMessage()
+        private IEnumerator ShowMessage(string message)
         {
             MessageText.gameObject.SetActive(true);
-            MessageText.text = "Incorrect Pass! +3s";
+            MessageText.text = message;
             yield return new WaitForSeconds(2);
             MessageText.gameObject.SetActive(false);
         }
@@ -124,16 +125,6 @@ namespace Assets.Scripts
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             loadingText.gameObject.SetActive(false);
-        }
-
-        private void HandleQuitGame()
-        {
-            QuitGamePanel.SetActive(true);
-        }
-
-        private void HandleQuitGameCancel()
-        {
-            QuitGamePanel.SetActive(false);
         }
     }
 }

@@ -35,6 +35,9 @@ namespace Assets.Scripts
         [Tooltip("Sound played when the player passes correctly through a gate.")]
         public AudioClip correctSound;
 
+        [Tooltip("Sound played when the player passes through a bonus gate.")]
+        public AudioClip bonusPassSound;
+
         [Tooltip("Sound played when the player passes incorrectly through a gate.")]
         public AudioClip incorrectSound;
 
@@ -54,6 +57,7 @@ namespace Assets.Scripts
         {
             PlayerEvents.OnPlayerHit += PlaySound;
             GameEvents.OnCorrectPass += PlayCorrectPassSound;
+            GameEvents.OnBonusPass += PlayBonusPassSound;
             GameEvents.OnIncorrectPass += PlayIncorrectPassSound;
             GameEvents.OnRaceStart += PlayStartSound;
             GameEvents.OnRaceStop += PlayStartSound;
@@ -65,6 +69,7 @@ namespace Assets.Scripts
             GameEvents.OnRaceStart -= PlayStartSound;
             GameEvents.OnRaceStop -= PlayStartSound;
             GameEvents.OnCorrectPass -= PlayCorrectPassSound;
+            GameEvents.OnBonusPass -= PlayBonusPassSound;
             GameEvents.OnIncorrectPass -= PlayIncorrectPassSound;
         }
 
@@ -96,6 +101,11 @@ namespace Assets.Scripts
         private void PlayCorrectPassSound()
         {
             audioSource.PlayOneShot(correctSound);
+        }
+
+        private void PlayBonusPassSound()
+        {
+            audioSource.PlayOneShot(bonusPassSound);
         }
 
         private void PlayIncorrectPassSound()
