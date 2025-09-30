@@ -15,6 +15,7 @@ public class TitleScreenManager : MonoBehaviour
 {
     public CanvasGroup buttonsGroup;
     public CanvasGroup quitCheckGroup;
+    public CanvasGroup helpGroup;
     public Image overlayImage;
     public CanvasGroup LoadingText;
     public CanvasGroup NFSText;
@@ -27,6 +28,7 @@ public class TitleScreenManager : MonoBehaviour
         //overlayImage.DOFade(1, 0);
         quitCheckGroup.DOFade(0, 0);
         buttonsGroup.DOFade(0, 0);
+        helpGroup.DOFade(0, 0);
         LoadingText.DOFade(0, 0);
         NFSText.DOFade(0, 0);
         // Fade the overlay out to reveal the title screen
@@ -53,6 +55,32 @@ public class TitleScreenManager : MonoBehaviour
         buttonsGroup.DOFade(1, fadeTime);
         NFSText.DOFade(1, fadeTime);
         NFSText.interactable = true;
+    }
+
+    public void ShowHelp()
+    {
+        helpGroup.interactable = true;
+        helpGroup.DOFade(1, fadeTime);
+        
+        buttonsGroup.interactable = false;
+        buttonsGroup.DOFade(0, fadeTime);
+        
+        NFSText.interactable = false;
+        NFSText.blocksRaycasts = false;
+        NFSText.DOFade(0, fadeTime);
+    }
+
+    public void HideHelp()
+    {
+        helpGroup.interactable = false;
+        helpGroup.DOFade(0, fadeTime);
+
+        buttonsGroup.interactable = true;
+        buttonsGroup.DOFade(1, fadeTime);
+
+        NFSText.interactable = true;
+        NFSText.blocksRaycasts = true;
+        NFSText.DOFade(1, fadeTime);
     }
 
     public void QuitGame()
