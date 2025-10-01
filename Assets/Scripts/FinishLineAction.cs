@@ -15,7 +15,6 @@ namespace Assets.Scripts
             if (other.CompareTag("Player"))
             {
                 GameEvents.InvokeRaceStop();
-                Debug.Log("Race Finished!");
             }
         }
     }

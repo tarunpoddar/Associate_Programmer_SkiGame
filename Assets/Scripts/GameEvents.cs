@@ -17,6 +17,9 @@
         public delegate void RaceTimerStoppedAction();
         public static event RaceTimerStoppedAction OnRaceTimerStopped;
 
+        public delegate void LeaderboardUpdatedAction();
+        public static event LeaderboardUpdatedAction OnLeaderboardUpdated;
+
         public delegate void CorrectPassAction();
         public static event CorrectPassAction OnCorrectPass;
 
@@ -96,6 +99,12 @@
         {
             if (OnRaceTimerStopped != null)
                 OnRaceTimerStopped?.Invoke();
+        }
+
+        public static void InvokeLeaderboardUpdated()
+        {
+            if (OnLeaderboardUpdated != null)
+                OnLeaderboardUpdated?.Invoke();
         }
     }
 }

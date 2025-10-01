@@ -58,7 +58,6 @@ namespace Assets.Scripts
             if (raceStarted)
             {
                 StopCoroutine("Timer");
-                print("Race Stopped. Total RACE TIME: " + timePlaying.ToString("mm':'ss':'ff"));
 
                 GameEvents.InvokeRaceTimerStopped();
             }

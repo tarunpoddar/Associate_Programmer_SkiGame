@@ -56,9 +56,10 @@ namespace Assets.Scripts
             GameEvents.OnBonusPass += HandleBonusPass;
             GameEvents.OnRetryRace += HandleRetryRace;
             GameEvents.OnNextLevel += HandleNextLevel;
+            GameEvents.OnLeaderboardUpdated += OnLeaderBoardUpdated;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
-       
+
         void OnDisable()
         {
             GameEvents.OnRaceStop -= HandleRaceOver;
@@ -66,6 +67,7 @@ namespace Assets.Scripts
             GameEvents.OnBonusPass -= HandleBonusPass;
             GameEvents.OnRetryRace -= HandleRetryRace;
             GameEvents.OnNextLevel -= HandleNextLevel;
+            GameEvents.OnLeaderboardUpdated -= OnLeaderBoardUpdated;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
@@ -106,11 +108,6 @@ namespace Assets.Scripts
             RaceActivePanel.SetActive(false);
         }
 
-        private void FixedUpdate()
-        {
-            TimeDataText.text = string.Join("\n", LeaderboardManager.FormattedTimes);
-        }
-
         private void HandleNextLevel()
         {
             HandleRetryRace();
@@ -125,6 +122,27 @@ namespace Assets.Scripts
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             loadingText.gameObject.SetActive(false);
+        }
+        private void OnLeaderBoardUpdated()
+        {
+            // Update the leaderboard UI here
+            string[] times = LeaderboardManager.FormattedTimes;
+            string result = string.Empty;
+
+            Debug.Log("Updating leaderboard UI with times:");
+
+            for (int i = 0; i < times.Length; i++)
+            {
+                if (FinalRaceTimeText.text.ToString().Contains(times[i]))
+                {
+                    result += $"<color=#FFC200>{times[i]}</color>\n";
+                    continue;
+                }
+             
+                result += times[i] + "\n";
+            }
+
+            TimeDataText.text = result.Trim();
         }
     }
 }

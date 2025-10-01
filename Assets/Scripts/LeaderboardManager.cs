@@ -10,6 +10,7 @@ namespace Assets.Scripts
         public static string[] FormattedTimes = new string[5];
         private readonly List<float> top5RaceTimes = new List<float>(new float[5]);
         private int currentSceneIndex;
+
         private void Awake()
         {
             currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -59,28 +60,29 @@ namespace Assets.Scripts
                 return;
             }
 
-            if (RaceTimer.raceTime > top5RaceTimes[top5RaceTimes.Count - 1] && top5RaceTimes[top5RaceTimes.Count - 1] > 0.0001f)
-                return;
-
-            // Insert from back.
-            for (int i = top5RaceTimes.Count - 1; i >= 0; i--)
+            if (RaceTimer.raceTime < top5RaceTimes[top5RaceTimes.Count - 1] || top5RaceTimes[top5RaceTimes.Count - 1] < 0.0001f)
             {
-                
-                if (Math.Round(RaceTimer.raceTime, 2) < Math.Round(top5RaceTimes[i], 2)
-                    || top5RaceTimes[i] < 0.0001f)
+                // Insert from back.
+                for (int i = top5RaceTimes.Count - 1; i >= 0; i--)
                 {
-                    highScore = true;
+                    if (Math.Round(RaceTimer.raceTime, 2) < Math.Round(top5RaceTimes[i], 2)
+                        || top5RaceTimes[i] < 0.0001f)
+                    {
+                        highScore = true;
 
-                    if (i < scorePosition)
-                        scorePosition = i;
+                        if (i < scorePosition)
+                            scorePosition = i;
+                    }
+                }
+
+                if (highScore)
+                {
+                    top5RaceTimes.Insert(scorePosition, (float)Math.Round(RaceTimer.raceTime, 2));
+                    SetBestTimes();
                 }
             }
-
-            if (highScore)
-            {
-                top5RaceTimes.Insert(scorePosition, (float)Math.Round(RaceTimer.raceTime, 2));
-                SetBestTimes();
-            }
+            
+            GameEvents.InvokeLeaderboardUpdated(); 
         }
 
         private void SetBestTimes()
