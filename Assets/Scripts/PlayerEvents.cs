@@ -18,7 +18,7 @@ namespace Assets.Scripts
         /// <remarks>This method triggers the <see cref="OnPlayerHit"/> event, allowing subscribers to
         /// respond to the player being hit. Ensure that there are no null subscribers to avoid potential <see
         /// cref="NullReferenceException"/>.</remarks>
-        public static void PlayerHit(GameObject hitObject)
+        public static void InvokePlayerHit(GameObject hitObject)
         {
             OnPlayerHit?.Invoke(hitObject);
         }

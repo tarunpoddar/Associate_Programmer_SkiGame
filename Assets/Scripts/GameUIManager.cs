@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -37,17 +38,23 @@ namespace Assets.Scripts
         [Tooltip("Assign the TimeDataTexts object.")]
         public TextMeshProUGUI[] TimeDataTexts;
 
-        [SerializeField]
         [Tooltip("Text to display loading progress.")]
-        private TextMeshProUGUI loadingText;
+        public TextMeshProUGUI LoadingText;
+
+        [Tooltip("Text to display on race failed.")]
+        public CanvasGroup RaceFailedText;
+
+        [Tooltip("Assign the Next Race button.")]
+        public Button NextRaceButton;
 
         private void Awake()
         {
             RaceOverPanel.SetActive(false);
             MessageText.gameObject.SetActive(false);
-            loadingText.text = "Loading...";
-            loadingText.gameObject.SetActive(false);
+            LoadingText.text = "Loading...";
+            LoadingText.gameObject.SetActive(false);
             TotalRaceCompletedText.gameObject.SetActive(false);
+            RaceFailedText.DOFade(0, 0f);
         }
 
         void OnEnable()
@@ -58,6 +65,7 @@ namespace Assets.Scripts
             GameEvents.OnRetryRace += HandleRetryRace;
             GameEvents.OnNextLevel += HandleNextLevel;
             GameEvents.OnLeaderboardUpdated += OnLeaderBoardUpdated;
+            GameEvents.OnPlayerDied += HandlePlayerDied;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -69,6 +77,7 @@ namespace Assets.Scripts
             GameEvents.OnRetryRace -= HandleRetryRace;
             GameEvents.OnNextLevel -= HandleNextLevel;
             GameEvents.OnLeaderboardUpdated -= OnLeaderBoardUpdated;
+            GameEvents.OnPlayerDied -= HandlePlayerDied;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
@@ -109,6 +118,12 @@ namespace Assets.Scripts
             RaceActivePanel.SetActive(false);
         }
 
+        private void HandlePlayerDied()
+        {
+            RaceFailedText.DOFade(1, 0.5f);
+            NextRaceButton.gameObject.SetActive(false);
+        }
+
         private void HandleNextLevel()
         {
             HandleRetryRace();
@@ -117,13 +132,14 @@ namespace Assets.Scripts
         private void HandleRetryRace()
         {
             RaceOverPanel.SetActive(false);
-            loadingText.gameObject.SetActive(true);
+            LoadingText.gameObject.SetActive(true);
         }
 
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            loadingText.gameObject.SetActive(false);
+            LoadingText.gameObject.SetActive(false);
         }
+
         private void OnLeaderBoardUpdated()
         {
             // Update the leaderboard UI here

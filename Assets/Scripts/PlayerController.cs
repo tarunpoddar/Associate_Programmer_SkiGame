@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -32,9 +33,8 @@ namespace Assets.Scripts
             [Tooltip("Turn Deacceleration of the player.")]
             public float turnDeceleration;
 
-            public int score;
-
-            public float health;
+            [Tooltip("Health of the player.")]
+            public int health;
         }
 
         [Tooltip("Is the player moving.")]
@@ -49,6 +49,9 @@ namespace Assets.Scripts
         [Tooltip("Current player stats.")]
         public Stats playerStats;
 
+        [Tooltip("Assign the Player Health Slider UI element.")]
+        public Slider playerHealth;
+
         private Rigidbody rb;
         private Animator animator;
         private PlayerDamage playerDamage;
@@ -61,6 +64,8 @@ namespace Assets.Scripts
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
             playerDamage = GetComponent<PlayerDamage>();
+            playerStats.health = 100;
+            playerHealth.value = playerStats.health;
         }
 
         private void OnEnable()
@@ -78,9 +83,18 @@ namespace Assets.Scripts
             raceStopped = true;
         }
 
-        public void UpdateHealth(float amount)
+        public void UpdateHealth(int amount)
         {
+            if(playerStats.health + amount <= 0)
+            {
+                playerStats.health = 0;
+                GameEvents.InvokePlayerDied();
+                GameEvents.InvokeRaceStop();
+                return;
+            }
+
             playerStats.health += amount;
+            playerHealth.value = playerStats.health;
             Debug.Log($"Updated health by: {amount}, Player's current Health: {playerStats.health}");
         }
 

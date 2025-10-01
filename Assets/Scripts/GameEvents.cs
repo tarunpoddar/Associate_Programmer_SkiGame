@@ -41,6 +41,9 @@
         public delegate void QuitGameCancelAction();
         public static event QuitGameCancelAction OnQuitGameCancel;
 
+        public delegate void PlayerDiedAction();
+        public static event PlayerDiedAction OnPlayerDied;
+
         public static void InvokeRaceStart()
         {
             if (OnRaceStart != null)
@@ -105,6 +108,12 @@
         {
             if (OnLeaderboardUpdated != null)
                 OnLeaderboardUpdated?.Invoke();
+        }
+
+        public static void InvokePlayerDied()
+        {
+            if (OnPlayerDied != null)
+                OnPlayerDied?.Invoke();
         }
     }
 }

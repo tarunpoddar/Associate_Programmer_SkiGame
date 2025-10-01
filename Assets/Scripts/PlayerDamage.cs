@@ -22,10 +22,12 @@ namespace Assets.Scripts
         public bool hurt = false;
 
         private Rigidbody rb;
+        private PlayerController playerController;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
+            playerController = GetComponent<PlayerController>();
         }
 
         // Register that TakeDamage will be called when an OnPlayerHit Event happens
@@ -56,6 +58,8 @@ namespace Assets.Scripts
                 // sends the player up and back from bumping into an obstacle
                 rb.AddForce(transform.forward * -knockBackForce); // Going up.
                 rb.AddForce(transform.up * knockUpForce);
+
+                playerController.UpdateHealth(-10);
 
                 StartCoroutine("Recover");
             }

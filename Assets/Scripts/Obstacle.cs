@@ -25,7 +25,7 @@ namespace Assets.Scripts
         /// </summary>
         public virtual void HitPlayer(GameObject player, GameObject hitObject)
         {
-            PlayerEvents.PlayerHit(hitObject);
+            PlayerEvents.InvokePlayerHit(hitObject);
             player.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
         }
     }
