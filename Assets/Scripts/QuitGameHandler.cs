@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts
@@ -6,7 +7,10 @@ namespace Assets.Scripts
     public class QuitGameHandler : MonoBehaviour
     {
         [Tooltip("Panel that contains the QuitGame confirmation dialog.")]
-        public GameObject QuitGamePanel;
+        public CanvasGroup QuitGamePanel;
+
+        [Tooltip("Canvas Group for the race over panel to manage its visibility and interactivity.")]
+        public CanvasGroup RaceOverPanel;
 
         [Tooltip("Button that triggers the QuitGame action.")]
         public Button QuitGameButton;
@@ -19,7 +23,9 @@ namespace Assets.Scripts
 
         private void Start()
         {
-            QuitGamePanel.SetActive(false);
+            QuitGamePanel.DOFade(0, 0f);
+            RaceOverPanel.blocksRaycasts = true;
+            QuitGamePanel.blocksRaycasts = false;
         }
 
         private void OnEnable()
@@ -38,7 +44,11 @@ namespace Assets.Scripts
 
         private void QuitGame()
         {
-            QuitGamePanel.SetActive(true);// Just for quick testing
+            RaceOverPanel.DOFade(0, 0.5f);
+            RaceOverPanel.blocksRaycasts = false;
+            QuitGamePanel.DOFade(1, 0.5f);
+            QuitGamePanel.blocksRaycasts = true;
+
             //GameEvents.InvokeQuitGame();// Actual recommended way
         }
 
@@ -54,7 +64,10 @@ namespace Assets.Scripts
 
         private void QuitGameCancel()
         {
-            QuitGamePanel.SetActive(false);// Just for quick testing
+            RaceOverPanel.DOFade(1, 0.5f);
+            RaceOverPanel.blocksRaycasts = true;
+            QuitGamePanel.DOFade(0, 0.5f);
+            QuitGamePanel.blocksRaycasts = false;
             //GameEvents.InvokeQuitGameCancel();// Actual recommended way
         }
     }

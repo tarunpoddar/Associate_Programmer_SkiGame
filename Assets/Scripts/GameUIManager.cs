@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 namespace Assets.Scripts
 {
@@ -33,8 +34,8 @@ namespace Assets.Scripts
         [Tooltip("Assign the TotalRaceCompletedText object.")]
         public TextMeshProUGUI TotalRaceCompletedText;
 
-        [Tooltip("Assign the TimeDataText object.")]
-        public TextMeshProUGUI TimeDataText;
+        [Tooltip("Assign the TimeDataTexts object.")]
+        public TextMeshProUGUI[] TimeDataTexts;
 
         [SerializeField]
         [Tooltip("Text to display loading progress.")]
@@ -127,22 +128,19 @@ namespace Assets.Scripts
         {
             // Update the leaderboard UI here
             string[] times = LeaderboardManager.FormattedTimes;
-            string result = string.Empty;
 
             Debug.Log("Updating leaderboard UI with times:");
 
             for (int i = 0; i < times.Length; i++)
             {
+                TimeDataTexts[i].text = times[i];
+
                 if (FinalRaceTimeText.text.ToString().Contains(times[i]))
                 {
-                    result += $"<color=#FFC200>{times[i]}</color>\n";
-                    continue;
+                    TimeDataTexts[i].DOColor(new Color(1f, 0.7597771f, 0f), 0.3f);
+                    TimeDataTexts[i].DOFade(0.5f, 0.3f).SetLoops(-1, LoopType.Yoyo);
                 }
-             
-                result += times[i] + "\n";
             }
-
-            TimeDataText.text = result.Trim();
         }
     }
 }
