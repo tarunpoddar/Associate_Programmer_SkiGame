@@ -1,0 +1,1271 @@
+🧪 Unity Associate Programmer – Mock Test
+🧠 Section 1: C# & Scripting (5 Questions)
+
+
+What is the correct way to declare a public float variable in Unity?
+
+A. float public mySpeed;
+B. public float mySpeed;
+C. float mySpeed = public;
+D. public mySpeed float;
+
+
+
+Which Unity method is called once when the script is first enabled?
+
+A. Update()
+B. Awake()
+C. Start()
+D. OnEnable()
+
+
+
+What does Time.deltaTime represent?
+
+A. Time since the game started
+B. Time between frames
+C. Time since last input
+D. Time between physics updates
+
+
+
+How do you detect collision with a trigger collider?
+
+A. OnCollisionEnter()
+B. OnTriggerEnter()
+C. OnColliderEnter()
+D. OnHitEnter()
+
+
+
+Which keyword is used to access another GameObject’s component?
+
+A. GetComponent<>
+B. FindComponent<>
+C. AccessComponent<>
+D. UseComponent<>
+
+
+
+
+🎮 Section 2: Unity Engine & Editor (5 Questions)
+
+
+What is the purpose of the Inspector window?
+
+A. To write code
+B. To view logs
+C. To modify GameObject properties
+D. To manage assets
+
+
+
+Which component is required to render a 3D object?
+
+A. Transform
+B. MeshRenderer
+C. Collider
+D. Animator
+
+
+
+What is the default axis for forward movement in Unity?
+
+A. X
+B. Y
+C. Z
+D. W
+
+
+
+How do you make a GameObject invisible but still active?
+
+A. Destroy(gameObject)
+B. gameObject.SetActive(false)
+C. renderer.enabled = false
+D. transform.visible = false
+
+
+
+What does the Tag system help with?
+
+A. Changing GameObject color
+B. Identifying GameObjects by category
+C. Applying physics
+D. Grouping animations
+
+
+
+
+🧩 Section 3: UI & Animation (5 Questions)
+
+
+Which component is used to display text in Unity UI?
+
+A. TextMesh
+B. TextMeshProUGUI
+C. CanvasText
+D. UIText
+
+
+
+What is the purpose of an Animator Controller?
+
+A. To control physics
+B. To manage UI transitions
+C. To define animation states and transitions
+D. To control camera movement
+
+
+
+Which Unity UI component allows user interaction?
+
+A. Image
+B. Text
+C. Button
+D. Canvas
+
+
+
+How do you fade a UI element using CanvasGroup?
+
+A. canvasGroup.alpha = 0f;
+B. canvasGroup.visible = false;
+C. canvasGroup.SetActive(false);
+D. canvasGroup.hide();
+
+
+
+What does the RectTransform component do?
+
+A. Controls 3D rotation
+B. Manages physics
+C. Handles UI layout and positioning
+D. Applies textures
+
+🧪 Answer Key
+🧠 Section 1: C# & Scripting
+
+B. public float mySpeed;
+C. Start()
+B. Time between frames
+B. OnTriggerEnter()
+A. GetComponent<>
+
+
+🎮 Section 2: Unity Engine & Editor
+
+C. To modify GameObject properties
+B. MeshRenderer
+C. Z
+C. renderer.enabled = false
+B. Identifying GameObjects by category
+
+
+🧩 Section 3: UI & Animation
+
+B. TextMeshProUGUI
+C. To define animation states and transitions
+C. Button
+A. canvasGroup.alpha = 0f;
+C. Handles UI layout and positioning
+
+=================================================================
+
+🧪 Unity Associate Programmer – Mock Test #2
+🧠 Section 1: C# & Scripting (5 Questions)
+
+
+What is the correct way to access a component attached to the same GameObject?
+
+A. gameObject.FindComponent<>();
+B. this.GetComponent<>();
+C. GetComponentInChildren<>();
+D. FindObjectOfType<>();
+
+B
+
+Which method is called every frame in Unity?
+
+A. Start()
+B. Awake()
+C. Update()
+D. FixedUpdate()
+
+C
+
+What is the purpose of SerializeField?
+
+A. To make a private variable visible in the Inspector
+B. To save data to disk
+C. To encrypt variables
+D. To make a variable public
+
+A
+
+Which Unity class is used to detect physics collisions?
+
+A. Collider
+B. Rigidbody
+C. Physics
+D. Collision
+
+A X D
+
+What does Vector3.forward represent?
+
+A. (1, 0, 0)
+B. (0, 1, 0)
+C. (0, 0, 1)
+D. (1, 1, 1)
+
+c
+
+
+🎮 Section 2: Unity Engine & Editor (5 Questions)
+
+
+What is the purpose of the Hierarchy window?
+
+A. To manage assets
+B. To view logs
+C. To organize scene GameObjects
+D. To edit scripts
+
+c
+
+Which component is required to apply physics to a GameObject?
+
+A. Collider
+B. Rigidbody
+C. Transform
+D. MeshRenderer
+
+
+
+B
+
+What does transform.Translate(Vector3.right) do?
+
+A. Rotates the object
+B. Moves the object to the right
+C. Scales the object
+D. Teleports the object
+
+B
+
+How do you make a GameObject inactive in the scene?
+
+A. gameObject.SetActive(false);
+B. gameObject.visible = false;
+C. gameObject.enabled = false;
+D. gameObject.hide();
+
+A
+
+What is the Scene view used for?
+
+A. Writing code
+B. Viewing logs
+C. Designing and positioning GameObjects
+D. Managing animations
+
+C
+
+
+🧩 Section 3: UI & Animation (5 Questions)
+
+
+Which component is used to group UI elements?
+
+A. Canvas
+B. Panel
+C. Image
+D. Text
+
+B X [A]
+
+What does the Animator component do?
+
+A. Controls physics
+B. Plays audio
+C. Manages animation playback
+D. Handles UI layout
+
+C
+
+Which method is used to load a new scene?
+
+A. SceneManager.LoadScene()
+B. Application.LoadLevel()
+C. Scene.Load()
+D. SceneManager.OpenScene()
+
+A
+
+What is the default anchor point for UI elements?
+
+A. Top-left
+B. Center
+C. Bottom-right
+D. Top-right
+
+B
+
+How do you make a UI element fade out using DOTween?
+
+A. canvasGroup.DOFade(0f, 1f);
+B. canvasGroup.alpha = 0f;
+C. canvasGroup.SetActive(false);
+D. canvasGroup.Hide();
+
+A
+
+=====================================================================
+🧪 Mock Test #3
+🧠 Section 1: C# & Scripting (5 Questions)
+
+
+What is the result of Vector3.up + Vector3.right?
+
+A. (1, 1, 0)
+B. (0, 1, 1)
+C. (1, 0, 1)
+D. (1, 1, 1)
+
+A
+
+Which method is best for physics-based movement?
+
+A. transform.Translate()
+B. Rigidbody.MovePosition()
+C. transform.position += Vector3.forward
+D. SetPosition()
+
+C X B
+
+What does GetComponentInChildren<T>() do?
+
+A. Finds a component in the parent GameObject
+B. Finds a component in the current GameObject
+C. Finds a component in child GameObjects
+D. Finds a component in the scene
+
+C
+
+Which Unity method is called when a script is disabled?
+
+A. OnDisable()
+B. OnDestroy()
+C. OnStop()
+D. OnExit()
+
+A
+
+What is the correct way to declare a coroutine?
+
+A. IEnumerator MyCoroutine()
+B. void MyCoroutine()
+C. async MyCoroutine()
+D. Coroutine MyCoroutine()
+
+A
+
+
+🎮 Section 2: Unity Engine & Editor (5 Questions)
+
+
+What does the Project window show?
+
+A. Scene hierarchy
+B. GameObject properties
+C. All assets in the project
+D. Console logs
+
+C
+
+Which component is required to detect mouse clicks on a UI button?
+
+A. Collider
+B. EventSystem
+C. CanvasGroup
+D. MeshRenderer
+
+B
+
+What is the purpose of the Time.fixedDeltaTime?
+
+A. Time between frames
+B. Time between physics updates
+C. Time since game start
+D. Time between UI refreshes
+
+B
+
+How do you prevent a GameObject from rotating due to physics?
+
+A. rigidbody.freezeRotation = true;
+B. transform.rotation = Quaternion.identity;
+C. rigidbody.angularVelocity = 0;
+D. rigidbody.useGravity = false;
+
+A
+
+What is the default execution order of Unity lifecycle methods?
+
+A. Awake → Start → Update
+B. Start → Awake → Update
+C. Update → Awake → Start
+D. Awake → Update → Start
+
+A
+
+
+🧩 Section 3: UI & Animation (5 Questions)
+
+
+Which component is used to animate UI transitions?
+
+A. Animator
+B. Canvas
+C. RectTransform
+D. LayoutGroup
+
+A
+
+What is the purpose of EventTrigger in Unity UI?
+
+A. To trigger animations
+B. To handle custom UI events like pointer enter, click, etc.
+C. To manage scene transitions
+D. To detect physics collisions
+
+B
+
+How do you make a UI element scale up smoothly?
+
+A. transform.localScale = Vector3.one * 2;
+B. DOTween.To(() => transform.localScale, x => transform.localScale = x, Vector3.one * 2, 1f);
+C. transform.ScaleUp();
+D. transform.sizeDelta *= 2;
+
+B
+
+Which component is used to control layout of child UI elements?
+
+A. GridLayoutGroup
+B. CanvasScaler
+C. Image
+D. TextMeshProUGUI
+
+B X A
+
+What does SetActive(false) do to a UI GameObject?
+
+A. Hides it and disables interaction
+B. Makes it invisible but still interactable
+C. Removes it from the scene
+D. Deletes the GameObject
+
+A
+
+🧪 Mock Test #4
+🧠 Section 1: C# & Scripting (5 Questions)
+
+
+What is the purpose of StartCoroutine() in Unity?
+
+A. To start a background thread
+B. To execute a method every frame
+C. To run a method over time
+D. To delay a method until a condition is met
+
+C
+
+Which keyword is used to prevent a variable from being modified in Unity?
+
+A. readonly
+B. const
+C. static
+D. private
+
+C X B
+
+What does Physics.Raycast() return?
+
+A. A boolean indicating if something was hit
+B. A GameObject
+C. A Collider
+D. A Transform
+
+A
+
+How do you check if a key is being held down?
+
+A. Input.GetKeyDown()
+B. Input.GetKeyUp()
+C. Input.GetKey()
+D. Input.PressedKey()
+
+A X C
+
+Which method is best for applying continuous force to a Rigidbody?
+
+A. AddForce()
+B. MovePosition()
+C. Translate()
+D. SetVelocity()
+
+A
+
+
+🎮 Section 2: Unity Engine & Editor (5 Questions)
+
+
+What does the Console window display?
+
+A. Scene hierarchy
+B. Asset previews
+C. Debug logs and errors
+D. Game view
+
+C
+
+Which component is required to detect collisions in Unity?
+
+A. Transform
+B. Collider
+C. MeshFilter
+D. Canvas
+
+B
+
+What is the function of Application.Quit()?
+
+A. Exits the Unity Editor
+B. Closes the game in a build
+C. Logs out the user
+D. Restarts the game
+
+B
+
+What is the role of Time.time?
+
+A. Time between frames
+B. Time since the last physics update
+C. Total time since the game started
+D. Time until the next frame
+
+C
+
+Which Unity feature allows you to reuse GameObjects efficiently?
+
+A. Prefabs
+B. Scenes
+C. Materials
+D. Layers
+
+A
+
+
+🧩 Section 3: UI & Animation (5 Questions)
+
+
+What does the Button.onClick event do?
+
+A. Changes the button color
+B. Triggers a method when the button is clicked
+C. Animates the button
+D. Disables the button
+
+B
+
+Which component is used to display images in Unity UI?
+
+A. RawImage
+B. Image
+C. SpriteRenderer
+D. CanvasGroup
+
+A X B
+
+How do you change the text of a TextMeshProUGUI component in code?
+
+A. text.value = "Hello";
+B. text.setText("Hello");
+C. text.text = "Hello";
+D. text.content = "Hello";
+
+C
+
+Which component allows you to animate transitions between UI panels?
+
+A. Animator
+B. CanvasScaler
+C. LayoutElement
+D. EventSystem
+
+A
+
+What does the CanvasScaler component do?
+
+A. Scales the canvas based on screen resolution
+B. Animates UI elements
+C. Handles button clicks
+D. Applies physics to UI
+
+A
+==============================================================================
+🧪 Mock Test #5
+🧠 Section 1: C# & Scripting (5 Questions)
+
+
+What is the output of Debug.Log(5 / 2); in Unity?
+
+A. 2.5
+B. 2
+C. 2.0
+D. Error
+
+A X B
+
+Which of the following is a valid way to declare a coroutine?
+
+A. public void Coroutine()
+B. IEnumerator Coroutine()
+C. async Coroutine()
+D. Coroutine Coroutine()
+
+B
+
+What is the purpose of OnDestroy() in Unity?
+
+A. Called when the game ends
+B. Called when the object is disabled
+C. Called when the object is destroyed
+D. Called when the scene loads
+
+C
+
+How do you access the position of a GameObject in Unity?
+
+A. gameObject.position
+B. transform.location
+C. transform.position
+D. gameObject.getPosition()
+
+C
+
+Which of the following is not a Unity lifecycle method?
+
+A. Awake()
+B. Start()
+C. Update()
+D. Run()
+
+D
+
+
+🎮 Section 2: Unity Engine & Editor (5 Questions)
+
+
+What does the Scene view allow you to do?
+
+A. View logs and errors
+B. Play the game
+C. Edit and position GameObjects
+D. Manage assets
+
+C
+
+Which component is used to apply gravity and physics forces?
+
+A. Collider
+B. Transform
+C. Rigidbody
+D. MeshRenderer
+
+C
+
+What is the use of Time.deltaTime?
+
+A. Time since the game started
+B. Time between physics updates
+C. Time between frames
+D. Time between scene loads
+
+C
+
+How do you make a GameObject visible again after hiding it?
+
+A. gameObject.SetActive(true);
+B. gameObject.visible = true;
+C. gameObject.Show();
+D. gameObject.Enable();
+
+A
+
+What is the purpose of the Prefab system in Unity?
+
+A. To store textures
+B. To create reusable GameObject templates
+C. To manage animations
+D. To apply physics
+
+B
+
+
+🧩 Section 3: UI & Animation (5 Questions)
+
+
+Which component is used to display text in Unity UI?
+
+A. TextMeshProUGUI
+B. TextMesh
+C. CanvasText
+D. UIText
+
+A
+
+What does Animator.SetTrigger("Jump") do?
+
+A. Starts a coroutine
+B. Sets a boolean parameter
+C. Triggers a transition in the Animator
+D. Plays a sound
+
+C
+
+Which Unity UI component allows users to input text?
+
+A. Text
+B. InputField
+C. Label
+D. TextBox
+
+B
+
+What is the purpose of LayoutElement in Unity UI?
+
+A. To apply physics to UI
+B. To define size and layout behavior of UI elements
+C. To animate UI transitions
+D. To detect clicks
+
+B
+
+How do you disable a button in Unity UI?
+
+A. button.SetActive(false);
+B. button.interactable = false;
+C. button.enabled = false;
+D. button.Hide();
+
+B
+================================================================================================
+🧪 Mock Test #6 – Advanced
+🧠 Section 1: Advanced Scripting & C# (5 Questions)
+
+
+What is the difference between Update() and FixedUpdate() in Unity?
+
+A. Update() is called every physics frame; FixedUpdate() is called every render frame.
+B. Update() is frame-rate dependent; FixedUpdate() is called at fixed intervals.
+C. Update() is used for physics; FixedUpdate() is used for rendering.
+D. Both are called at the same rate.
+
+B
+
+Which of the following is true about ScriptableObject?
+
+A. It can be attached to GameObjects like MonoBehaviour.
+B. It is used for runtime instantiation only.
+C. It is used to store shared data across multiple objects.
+D. It cannot be saved as an asset.
+
+- X C
+
+What does yield return null; do in a coroutine?
+
+A. Pauses the coroutine for one second.
+B. Stops the coroutine.
+C. Waits until the next frame.
+D. Waits until the condition is true.
+
+B X C
+
+Which Unity attribute allows you to show a private field in the Inspector?
+
+A. [Expose]
+B. [ShowInInspector]
+C. [SerializeField]
+D. [InspectorVisible]
+
+C
+
+What is the correct way to prevent a coroutine from running multiple times simultaneously?
+
+A. Use StopCoroutine() before starting it again.
+B. Use yield break;
+C. Use DestroyCoroutine()
+D. Use Coroutine.Stop()
+
+A
+
+
+🎮 Section 2: Unity Systems & Architecture (5 Questions)
+
+
+What is the purpose of DontDestroyOnLoad()?
+
+A. Prevents a GameObject from being destroyed when switching scenes.
+B. Prevents a GameObject from being disabled.
+C. Prevents a GameObject from being garbage collected.
+D. Prevents a GameObject from being instantiated.
+
+A
+
+Which Unity system is best suited for managing large numbers of entities efficiently?
+
+A. MonoBehaviour
+B. ECS (Entity Component System)
+C. ScriptableObject
+D. Animator Controller
+
+- X B
+
+What is the main benefit of using Object Pooling?
+
+A. Reduces memory usage by destroying unused objects.
+B. Improves performance by reusing objects instead of instantiating/destroying.
+C. Allows multiple scenes to share the same objects.
+D. Automatically manages object lifetimes.
+
+B
+
+What is the role of LateUpdate() in Unity?
+
+A. It runs before Update().
+B. It runs after all Update() calls, useful for camera follow logic.
+C. It runs only once per scene.
+D. It runs during physics calculations.
+
+B
+
+Which Unity feature allows you to define custom editor UI for your scripts?
+
+A. EditorWindow
+B. MonoBehaviour
+C. CustomEditor
+D. EditorGUILayout
+
+B X C
+
+
+🧩 Section 3: UI, Animation & Events (5 Questions)
+
+
+What is the correct way to fade a UI element using CanvasGroup and DOTween?
+
+A. canvasGroup.alpha = 0f;
+B. canvasGroup.DOFade(0f, 1f);
+C. canvasGroup.SetActive(false);
+D. canvasGroup.Hide();
+
+B
+
+How can you detect a pointer click on a UI element using code?
+
+A. Implement IPointerClickHandler
+B. Use OnMouseDown()
+C. Use Input.GetMouseButtonDown()
+D. Use EventTrigger.OnClick()
+
+C X A
+
+What is the purpose of RectTransform in Unity UI?
+
+A. To apply physics to UI elements
+B. To control layout and positioning of UI elements
+C. To render UI elements
+D. To manage UI animations
+
+B
+
+Which Unity component allows you to blend between multiple animations based on parameters?
+
+A. Animation
+B. Animator
+C. AnimationClip
+D. AnimatorOverrideController
+
+B
+
+What is the best way to handle multiple UI screens (menus, settings, etc.) in Unity?
+
+A. Use multiple canvases and toggle their visibility
+B. Use multiple scenes
+C. Use one canvas and enable/disable panels
+D. Use one canvas and destroy/recreate panels
+
+C
+=====================================================================================================
+🧪 Mock Test #7 – Expert Level
+🧠 Section 1: Advanced Scripting & Optimization (5 Questions)
+
+
+What is the primary benefit of using readonly struct in Unity's ECS or performance-critical code?
+
+A. It allows inheritance.
+B. It prevents boxing and improves memory layout.
+C. It enables dynamic typing.
+D. It allows runtime modification of fields.
+
+B
+
+Which Unity API is best for scheduling jobs on multiple threads for performance?
+
+A. MonoBehaviour.Invoke()
+B. System.Threading.Thread
+C. Unity.Jobs.JobHandle
+D. Task.Run()
+
+C
+
+What is the purpose of Burst Compiler in Unity?
+
+A. To compile shaders faster
+B. To optimize physics calculations
+C. To convert C# jobs into highly optimized native code
+D. To compress assets for builds
+
+C
+
+What is the effect of frequent new allocations inside Update()?
+
+A. Improved performance
+B. Reduced memory usage
+C. Increased garbage collection and frame drops
+D. No effect
+
+B X C
+
+Which Unity method is best suited for caching expensive operations during gameplay?
+
+A. OnEnable()
+B. Awake()
+C. Start()
+D. LateUpdate()
+
+D X B
+
+
+🎮 Section 2: Systems, Architecture & Scene Management (5 Questions)
+
+
+What is the recommended way to load a scene additively in Unity?
+
+A. SceneManager.LoadScene("SceneName")
+B. Application.LoadLevelAdditive("SceneName")
+C. SceneManager.LoadScene("SceneName", LoadSceneMode.Additive)
+D. SceneManager.LoadAdditiveScene("SceneName")
+
+C
+
+What is the role of Addressables in Unity?
+
+A. To manage physics-based assets
+B. To optimize rendering performance
+C. To load and manage assets asynchronously and efficiently
+D. To handle UI transitions
+
+- X C
+
+Which Unity feature allows you to profile memory usage and CPU performance?
+
+A. Scene View
+B. Profiler
+C. Inspector
+D. Animator
+
+B
+
+What is the purpose of Script Execution Order settings in Unity?
+
+A. To determine which script runs first in a frame
+B. To optimize rendering order
+C. To control animation blending
+D. To manage asset loading priority
+
+B X A
+
+What is the best practice for managing dependencies between scripts?
+
+A. Use FindObjectOfType<> in Update()
+B. Use GetComponent<> in every frame
+C. Use dependency injection or constructor injection
+D. Use static references globally
+
+D X C
+
+
+🧩 Section 3: UI, Events & Customization (5 Questions)
+
+
+How can you prevent a UI element from receiving raycasts?
+
+A. Disable the GameObject
+B. Set CanvasGroup.blocksRaycasts = false
+C. Set Image.raycastTarget = false
+D. Both B and C
+
+B X D
+
+What is the purpose of UnityEvent in Unity?
+
+A. To handle physics collisions
+B. To create custom events that can be assigned in the Inspector
+C. To manage scene transitions
+D. To trigger animations
+
+B
+
+Which component allows you to create scrollable UI content?
+
+A. ScrollRect
+B. CanvasScaler
+C. LayoutGroup
+D. Viewport
+
+D X A
+
+What is the correct way to animate a float property using DOTween?
+
+A. DOTween.FloatTo()
+B. DOTween.To(() => value, x => value = x, targetValue, duration)
+C. DOTween.MoveFloat()
+D. DOTween.AnimateFloat()
+
+B
+
+How can you detect if a UI element is currently being hovered by the mouse?
+
+A. Input.GetMouseButtonDown()
+B. Implement IPointerEnterHandler and IPointerExitHandler
+C. Use OnMouseOver()
+D. Use EventTrigger.OnHover()
+
+B
+
+==============================================================================================
+
+🧪 Mock Test #8 – Expert Level
+🧠 Section 1: Advanced Scripting & Performance (5 Questions)
+
+
+What is the main reason to use Mathf.Approximately(a, b) instead of a == b for comparing floats?
+
+A. It’s faster
+B. It avoids floating-point precision errors
+C. It works with integers
+D. It rounds values automatically
+
+B
+
+Which Unity method is best for executing logic after all rendering is complete?
+
+A. Update()
+B. LateUpdate()
+C. OnRenderObject()
+D. FixedUpdate()
+
+B
+
+What is the purpose of GC.Collect() in Unity?
+
+A. To manually trigger garbage collection
+B. To clean up unused assets
+C. To destroy GameObjects
+D. To optimize rendering
+
+A
+
+What is the effect of using Resources.Load() frequently during gameplay?
+
+A. Improves performance
+B. Reduces memory usage
+C. Can cause frame spikes due to synchronous loading
+D. Automatically unloads unused assets
+
+C
+
+Which Unity attribute allows you to draw a slider for a float in the Inspector?
+
+A. [Range(min, max)]
+B. [Slider(min, max)]
+C. [Clamp(min, max)]
+D. [MinMax(min, max)]
+
+A
+
+
+🎮 Section 2: Architecture, Systems & Scene Management (5 Questions)
+
+
+What is the best way to persist player data between sessions?
+
+A. Use PlayerPrefs
+B. Use DontDestroyOnLoad()
+C. Use ScriptableObject
+D. Use SceneManager.LoadScene()
+
+A
+
+What is the role of AssetBundle in Unity?
+
+A. To store UI layouts
+B. To package and load assets at runtime
+C. To manage physics settings
+D. To compile scripts
+
+B
+
+Which Unity feature helps reduce draw calls by combining meshes?
+
+A. MeshRenderer
+B. LODGroup
+C. Static Batching
+D. Animator
+
+A
+
+What is the purpose of Application.targetFrameRate?
+
+A. To set the maximum resolution
+B. To limit the frame rate of the game
+C. To control physics update rate
+D. To optimize memory usage
+
+B
+
+What is the best way to handle platform-specific code in Unity?
+
+A. Use #if UNITY_EDITOR, #if UNITY_ANDROID, etc.
+B. Use switch(platform)
+C. Use Application.Quit()
+D. Use PlatformManager.GetPlatform()
+
+A
+
+
+🧩 Section 3: UI, Input & Events (5 Questions)
+
+
+How do you prevent a UI element from being scaled incorrectly on different screen resolutions?
+
+A. Use CanvasScaler with Scale With Screen Size
+B. Use RectTransform anchors only
+C. Use FixedUpdate() to adjust scale
+D. Use Transform.localScale manually
+
+A
+
+What is the purpose of EventSystem.current.IsPointerOverGameObject()?
+
+A. To detect if the pointer is over any UI element
+B. To detect if a GameObject is selected
+C. To check if a collider is hit
+D. To detect if a scene is loaded
+
+A
+
+Which Unity UI component allows dynamic layout based on content size?
+
+A. ContentSizeFitter
+B. LayoutGroup
+C. CanvasScaler
+D. ScrollRect
+
+B
+
+How do you animate a UI element’s position using DOTween?
+
+A. transform.DOMove()
+B. rectTransform.DOMove()
+C. rectTransform.DOAnchorPos()
+D. transform.position = Vector3.Lerp(...)
+
+A
+
+What is the correct way to detect drag events on a UI element?
+
+A. Implement IDragHandler
+B. Use OnMouseDrag()
+C. Use Input.GetAxis("Mouse X")
+D. Use EventTrigger.OnDrag()
+
+A
+
+Here’s the **answer key** for your advanced **Unity Associate Programmer Mock Test #8**:
+
+---
+
+## ✅ **Answer Key – Mock Test #8**
+
+### 🧠 **Section 1: Advanced Scripting & Performance**
+
+1. **B.** It avoids floating-point precision errors  
+   - `Mathf.Approximately(a, b)` is used to compare floats safely, accounting for small precision differences.
+
+2. **C.** `OnRenderObject()`  
+   - Called after rendering is complete, useful for custom rendering logic.
+
+3. **A.** To manually trigger garbage collection  
+   - `GC.Collect()` forces garbage collection, but should be used cautiously as it can cause performance spikes.
+
+4. **C.** Can cause frame spikes due to synchronous loading  
+   - `Resources.Load()` loads assets synchronously, which can block the main thread and cause performance issues.
+
+5. **A.** `[Range(min, max)]`  
+   - This attribute draws a slider in the Inspector for float or int fields.
+
+---
+
+### 🎮 **Section 2: Architecture, Systems & Scene Management**
+
+6. **A.** Use `PlayerPrefs`  
+   - `PlayerPrefs` is commonly used for saving simple persistent data like settings or scores.
+
+7. **B.** To package and load assets at runtime  
+   - `AssetBundles` are used to load assets dynamically, especially in large or modular games.
+
+8. **C.** `Static Batching`  
+   - Combines static meshes to reduce draw calls and improve rendering performance.
+
+9. **B.** To limit the frame rate of the game  
+   - `Application.targetFrameRate` sets the desired frame rate cap for the application.
+
+10. **A.** Use `#if UNITY_EDITOR`, `#if UNITY_ANDROID`, etc.  
+   - Preprocessor directives allow platform-specific code compilation.
+
+---
+
+### 🧩 **Section 3: UI, Input & Events**
+
+11. **A.** Use `CanvasScaler` with `Scale With Screen Size`  
+   - Ensures UI scales properly across different screen resolutions.
+
+12. **A.** To detect if the pointer is over any UI element  
+   - `EventSystem.current.IsPointerOverGameObject()` helps prevent UI and game world input conflicts.
+
+13. **A.** `ContentSizeFitter`  
+   - Automatically adjusts the size of UI elements based on their content.
+
+14. **C.** `rectTransform.DOAnchorPos()`  
+   - Animates the anchored position of UI elements using DOTween.
+
+15. **A.** Implement `IDragHandler`  
+   - This interface allows you to respond to drag events on UI elements.
+
+---
+====================================================================================================
