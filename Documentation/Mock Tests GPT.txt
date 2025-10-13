@@ -1079,7 +1079,7 @@ B. LateUpdate()
 C. OnRenderObject()
 D. FixedUpdate()
 
-B
+B X C
 
 What is the purpose of GC.Collect() in Unity?
 
@@ -1137,7 +1137,7 @@ B. LODGroup
 C. Static Batching
 D. Animator
 
-A
+A X C
 
 What is the purpose of Application.targetFrameRate?
 
@@ -1186,7 +1186,7 @@ B. LayoutGroup
 C. CanvasScaler
 D. ScrollRect
 
-B
+B X A
 
 How do you animate a UI element’s position using DOTween?
 
@@ -1195,7 +1195,7 @@ B. rectTransform.DOMove()
 C. rectTransform.DOAnchorPos()
 D. transform.position = Vector3.Lerp(...)
 
-A
+A X C
 
 What is the correct way to detect drag events on a UI element?
 
@@ -1269,3 +1269,361 @@ Here’s the **answer key** for your advanced **Unity Associate Programmer Mock 
 
 ---
 ====================================================================================================
+
+Here’s your **Unity Associate Programmer – Mock Test #9 (Expert Level)**, focused on deep architectural understanding, performance, and advanced Unity systems.
+
+---
+
+## 🧪 **Mock Test #9 – Expert Level**
+
+### 🧠 **Section 1: Advanced Scripting & Memory Management (5 Questions)**
+
+1. What is the impact of using `List<T>.Add()` repeatedly in a loop without pre-allocating capacity?
+   - A. It improves performance due to dynamic resizing
+   - B. It causes frequent memory reallocations and GC pressure
+   - C. It avoids memory fragmentation
+   - D. It automatically pools memory
+
+A X B
+
+> B. Without pre-allocating capacity, List<T> resizes dynamically, which can lead to performance issues.
+
+2. Which Unity API allows you to allocate memory outside of the managed heap?
+   - A. `GCHandle`
+   - B. `NativeArray`
+   - C. `ArrayPool`
+   - D. `MemoryStream`
+
+> B. Allocates memory outside the managed heap, ideal for performance-critical systems like Jobs and Burst.
+
+3. What is the purpose of `Span<T>` in C#?
+   - A. To create a thread-safe collection
+   - B. To manage memory across scenes
+   - C. To provide a lightweight view over arrays or memory blocks
+   - D. To serialize data for networking
+
+> C. Span<T> allows safe, efficient access to slices of memory without allocations.
+
+4. What is the best way to avoid boxing when working with structs in Unity?
+   - A. Use `class` instead
+   - B. Avoid using interfaces with structs
+   - C. Use `ref struct`
+   - D. Use `readonly class`
+
+C X B
+> B. Using interfaces with structs causes boxing, which allocates memory on the heap.
+
+5. What does `Profiler.BeginSample("MySample")` do?
+   - A. Starts a memory allocation
+   - B. Begins a custom profiling block
+   - C. Logs a debug message
+   - D. Starts a coroutine
+   
+> B. Profiler.BeginSample() lets you mark sections of code for performance analysis in the Unity Profiler.
+
+---
+
+### 🎮 **Section 2: Systems, Rendering & Optimization (5 Questions)**
+
+6. What is the role of `CommandBuffer` in Unity’s rendering pipeline?
+   - A. To batch physics calculations
+   - B. To queue rendering commands for GPU execution
+   - C. To manage UI layout
+   - D. To control animation blending
+B
+
+7. Which Unity feature helps reduce overdraw in complex scenes?
+   - A. Occlusion Culling
+   - B. Static Batching
+   - C. LOD Group
+   - D. Depth Texture
+
+B X A
+> A. Prevents rendering of objects not visible to the camera, reducing overdraw.
+
+8. What is the benefit of using `Graphics.DrawMeshInstanced()`?
+   - A. It allows dynamic mesh deformation
+   - B. It reduces draw calls by rendering multiple instances efficiently
+   - C. It improves physics simulation
+   - D. It enables GPU ray tracing
+B
+9. What is the main purpose of `SRP Batcher` in URP/HDRP?
+   - A. To batch UI draw calls
+   - B. To optimize shader state changes and reduce CPU overhead
+   - C. To compress textures
+   - D. To manage scene transitions
+
+> B. SRP Batcher improves rendering performance by reducing CPU cost of shader switching.
+
+10. What does `Application.lowMemory` event help with?
+    - A. Detects when the GPU is overloaded
+    - B. Triggers when the system is running low on RAM
+    - C. Monitors battery usage
+    - D. Optimizes garbage collection
+
+> B. Application.lowMemory helps you respond to memory pressure, e.g., by unloading assets.
+---
+
+### 🧩 **Section 3: UI, Input & Custom Systems (5 Questions)**
+
+11. How can you implement a custom input system that supports multiple devices?
+    - A. Use `Input.GetKey()` for each device
+    - B. Use Unity’s new Input System with action maps
+    - C. Use `EventSystem` for device polling
+    - D. Use `OnGUI()` for input detection
+
+> B. The new Input System supports multiple devices and flexible input configurations.
+
+12. What is the purpose of `CanvasGroup.interactable = false`?
+    - A. Makes the UI element invisible
+    - B. Prevents interaction while keeping it visible
+    - C. Disables raycasts
+    - D. Removes the element from layout
+
+> B. CanvasGroup.interactable = false disables interaction but keeps the UI element visible.
+
+13. How do you create a custom inspector for a MonoBehaviour?
+    - A. Use `[CustomEditor(typeof(MyScript))]` and override `OnInspectorGUI()`
+    - B. Use `EditorWindow`
+    - C. Use `ScriptableObject`
+    - D. Use `EditorUtility.DrawInspector()`
+
+> A. This creates a custom Inspector for a MonoBehaviour script.
+
+14. What is the correct way to detect swipe gestures in Unity?
+    - A. Use `Input.GetAxis("Mouse X")`
+    - B. Use `Touch.phase` and track delta positions
+    - C. Use `OnMouseDrag()`
+    - D. Use `EventTrigger.OnSwipe()`
+
+> B. Detecting swipe gestures requires tracking touch movement and direction.
+
+15. What is the best way to animate UI layout changes smoothly?
+    - A. Use `LayoutGroup` with DOTween on `RectTransform`
+    - B. Use `CanvasScaler` with transitions
+    - C. Use `Animator` with `LayoutElement`
+    - D. Use `Coroutine` with `SetActive()`
+
+> A. Smoothly animates layout changes by tweening anchored positions or sizes.
+
+---
+
+Here’s the **answer key** for your **Unity Associate Programmer Mock Test #9 (Expert Level)**:
+
+---
+
+## ✅ **Answer Key – Mock Test #9**
+
+### 🧠 **Section 1: Advanced Scripting & Memory Management**
+
+1. **B.** It causes frequent memory reallocations and GC pressure  
+   - Without pre-allocating capacity, `List<T>` resizes dynamically, which can lead to performance issues.
+
+2. **B.** `NativeArray`  
+   - Allocates memory outside the managed heap, ideal for performance-critical systems like Jobs and Burst.
+
+3. **C.** To provide a lightweight view over arrays or memory blocks  
+   - `Span<T>` allows safe, efficient access to slices of memory without allocations.
+
+4. **B.** Avoid using interfaces with structs  
+   - Using interfaces with structs causes boxing, which allocates memory on the heap.
+
+5. **B.** Begins a custom profiling block  
+   - `Profiler.BeginSample()` lets you mark sections of code for performance analysis in the Unity Profiler.
+
+---
+
+### 🎮 **Section 2: Systems, Rendering & Optimization**
+
+6. **B.** To queue rendering commands for GPU execution  
+   - `CommandBuffer` allows low-level control over rendering operations.
+
+7. **A.** Occlusion Culling  
+   - Prevents rendering of objects not visible to the camera, reducing overdraw.
+
+8. **B.** It reduces draw calls by rendering multiple instances efficiently  
+   - `Graphics.DrawMeshInstanced()` is used for rendering many identical objects with fewer draw calls.
+
+9. **B.** To optimize shader state changes and reduce CPU overhead  
+   - SRP Batcher improves rendering performance by reducing CPU cost of shader switching.
+
+10. **B.** Triggers when the system is running low on RAM  
+   - `Application.lowMemory` helps you respond to memory pressure, e.g., by unloading assets.
+
+---
+
+### 🧩 **Section 3: UI, Input & Custom Systems**
+
+11. **B.** Use Unity’s new Input System with action maps  
+   - The new Input System supports multiple devices and flexible input configurations.
+
+12. **B.** Prevents interaction while keeping it visible  
+   - `CanvasGroup.interactable = false` disables interaction but keeps the UI element visible.
+
+13. **A.** Use `[CustomEditor(typeof(MyScript))]` and override `OnInspectorGUI()`  
+   - This creates a custom Inspector for a MonoBehaviour script.
+
+14. **B.** Use `Touch.phase` and track delta positions  
+   - Detecting swipe gestures requires tracking touch movement and direction.
+
+15. **A.** Use `LayoutGroup` with DOTween on `RectTransform`  
+   - Smoothly animates layout changes by tweening anchored positions or sizes.
+
+---
+==================================================================================
+
+Here’s your **Unity Associate Programmer – Mock Test #10 (Expert Level)**, focused on real-world problem solving, architecture, and performance tuning.
+
+---
+
+## 🧪 **Mock Test #10 – Expert Level**
+
+### 🧠 **Section 1: Architecture & Code Quality (5 Questions)**
+
+1. A senior developer used `FindObjectOfType<>()` in `Update()` to access a manager. What’s the best fix?
+   - A. Use `GetComponent<>()` every frame
+   - B. Cache the reference in `Start()` or `Awake()`
+   - C. Use `Resources.FindObjectOfTypeAll<>()`
+   - D. Use `SceneManager.GetActiveScene()`
+
+> B. FindObjectOfType<>() is expensive and should not be used in Update().
+
+2. You’re reviewing a system where multiple scripts use `static` variables to share state. What’s a safer alternative?
+   - A. Use `ScriptableObject` for shared data
+   - B. Use `MonoBehaviour` inheritance
+   - C. Use `PlayerPrefs`
+   - D. Use `Transform.parent`
+
+> A. ScriptableObject is a clean, scalable way to share state without relying on static variables.
+
+3. A lead architect created a custom event system using delegates, but it’s hard to manage in the Inspector. What Unity feature can improve this?
+   - A. `UnityEvent`
+   - B. `Coroutine`
+   - C. `AnimationEvent`
+   - D. `EventTrigger`
+
+> A. UnityEvent allows event binding in the Inspector, making it easier to manage than raw delegates.
+
+While delegates and events in C# are powerful, they are not visible or editable in the Unity Inspector, making them harder to manage for designers.
+UnityEvent is a serializable event system that allows you to:
+
+Assign listeners directly in the Inspector.
+Trigger methods on other components without writing code.
+
+It’s ideal for UI buttons, gameplay triggers, and modular systems.
+
+4. A developer added a coroutine that never ends and keeps allocating memory. What’s the best way to fix it?
+   - A. Use `yield return null` forever
+   - B. Add a termination condition and call `yield break`
+   - C. Use `InvokeRepeating()`
+   - D. Move logic to `Update()`
+
+> B. Prevents infinite memory allocation and keeps the coroutine manageable.
+
+5. You need to ensure a manager GameObject persists across scenes. What’s the correct approach?
+   - A. Use `DontDestroyOnLoad(this.gameObject)`
+   - B. Use `SceneManager.LoadSceneAsync()`
+   - C. Use `Application.runInBackground`
+   - D. Use `Instantiate()` in every scene
+
+> A. Ensures the GameObject persists across scene loads.
+---
+
+### 🎮 **Section 2: Performance & Rendering (5 Questions)**
+
+6. A scene has hundreds of identical trees. What’s the best way to render them efficiently?
+   - A. Use `Instantiate()` for each tree
+   - B. Use `Graphics.DrawMeshInstanced()`
+   - C. Use `MeshRenderer` with LOD
+   - D. Use `Resources.Load()` for each tree
+
+> B. Efficiently renders many identical objects with fewer draw calls.
+
+7. A developer added many transparent UI elements. What rendering issue might occur?
+   - A. Z-fighting
+   - B. Overdraw
+   - C. Shader compilation error
+   - D. Occlusion culling failure
+
+> B. Transparent UI elements can cause multiple layers to be rendered, leading to performance issues.
+
+8. You’re profiling a game and notice frequent GC spikes. What’s a likely cause?
+   - A. Using `foreach` on `List<T>`
+   - B. Using `new` allocations in `Update()`
+   - C. Using `Time.deltaTime`
+   - D. Using `transform.position`
+
+> B. Frequent allocations in Update() lead to GC spikes and frame drops.
+
+9. A lead added a post-processing stack but performance dropped. What’s a quick optimization?
+   - A. Disable anti-aliasing
+   - B. Reduce screen resolution
+   - C. Disable unused effects like bloom or ambient occlusion
+   - D. Use `Application.targetFrameRate`
+
+> C. These effects are GPU-intensive and can be disabled to improve performance.
+
+Post-processing effects like bloom, ambient occlusion, motion blur, and depth of field are GPU-intensive.
+If multiple effects are enabled by default, they can significantly reduce frame rate, especially on mobile or low-end devices.
+Disabling unused or non-critical effects is a quick way to improve performance without sacrificing visual quality too much.
+
+10. A mobile game has inconsistent frame rates. What’s a good first step?
+    - A. Use `FixedUpdate()` for all logic
+    - B. Profile with Unity Profiler and check CPU/GPU timings
+    - C. Increase physics timestep
+    - D. Use `Time.timeScale = 2`
+
+> B. Always start with profiling to identify the root cause of frame rate issues.
+
+Before making changes, you should always profile the game to understand what’s causing the frame drops.
+The Unity Profiler helps identify:
+
+CPU bottlenecks (e.g., physics, scripts)
+GPU bottlenecks (e.g., rendering, shaders)
+Memory usage and GC spikes
+
+Blindly tweaking settings like FixedUpdate() or timeScale can worsen performance if the root cause isn’t addressed.
+---
+
+### 🧩 **Section 3: UI, Input & AR (5 Questions)**
+
+11. You want to show a message until a horizontal AR plane is detected. What’s the best approach?
+    - A. Use `ARPlaneManager.trackables.count > 0`
+    - B. Use `ARSession.Reset()`
+    - C. Use `ARAnchorManager`
+    - D. Use `ARCameraManager`
+
+> A. Indicates that at least one plane has been detected.
+
+12. A UI button is not responding to clicks. What should you check first?
+    - A. `CanvasGroup.interactable`
+    - B. `Button.enabled`
+    - C. `EventSystem` is present in the scene
+    - D. All of the above
+
+> D. All listed issues can prevent a button from responding to clicks.
+
+13. You need to animate a UI element’s scale smoothly. What’s the best method?
+    - A. `transform.localScale = Vector3.Lerp(...)`
+    - B. `transform.DOScale(targetScale, duration)`
+    - C. `transform.ScaleUp()`
+    - D. `transform.sizeDelta *= 2`
+
+> B. DOTween provides smooth and efficient scale animations.
+
+14. A developer used `OnMouseDown()` to detect clicks on UI. It’s not working. Why?
+    - A. `OnMouseDown()` only works on 3D objects with colliders
+    - B. UI doesn’t support mouse events
+    - C. The canvas is disabled
+    - D. The camera is not tagged as MainCamera
+
+> A. UI elements require EventSystem-based input handling.
+
+15. You want to support swipe gestures in AR. What’s the best input method?
+    - A. `Input.GetAxis("Mouse X")`
+    - B. `Touch.phase` with delta tracking
+    - C. `OnMouseDrag()`
+    - D. `EventTrigger.OnSwipe()`
+
+> B. Best practice for detecting swipe gestures on mobile devices.
+---
