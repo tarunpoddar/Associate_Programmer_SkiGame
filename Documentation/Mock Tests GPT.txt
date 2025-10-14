@@ -1619,6 +1619,14 @@ Blindly tweaking settings like FixedUpdate() or timeScale can worsen performance
 
 > A. UI elements require EventSystem-based input handling.
 
+OnMouseDown() is part of Unity’s MonoBehaviour input system and only works on:
+
+3D objects with a Collider component.
+2D objects with a Collider2D and a Camera with Physics Raycaster.
+
+UI elements use the EventSystem and interfaces like IPointerClickHandler for interaction.
+To detect clicks on UI, use Button.onClick, EventTrigger, or implement pointer interfaces.
+
 15. You want to support swipe gestures in AR. What’s the best input method?
     - A. `Input.GetAxis("Mouse X")`
     - B. `Touch.phase` with delta tracking
@@ -1627,3 +1635,143 @@ Blindly tweaking settings like FixedUpdate() or timeScale can worsen performance
 
 > B. Best practice for detecting swipe gestures on mobile devices.
 ---
+=============================================================================
+
+Here’s your **Unity Associate Programmer – Mock Test #11 (Expert Level)**, designed to challenge your skills in debugging, architecture, optimization, and Unity systems integration.
+
+---
+
+## 🧪 **Mock Test #11 – Expert Level**
+
+### 🧠 **Section 1: Debugging & Architecture (5 Questions)**
+
+1. A developer added `transform.position += Vector3.forward * speed * Time.deltaTime;` in `Update()` for movement, but the object jitters. What’s the likely cause?
+   - A. `Time.deltaTime` is too small
+   - B. Physics should be handled in `FixedUpdate()`
+   - C. `Vector3.forward` is incorrect
+   - D. `Update()` is not called every frame
+
+> B. Movement involving physics (e.g., Rigidbody) should be done in FixedUpdate() to avoid jitter due to inconsistent frame rates.
+
+2. A senior architect created a singleton using `static instance = this;` in `Start()`. Sometimes `instance` is null. What’s the fix?
+   - A. Move assignment to `Awake()`
+   - B. Use `DontDestroyOnLoad()`
+   - C. Use `FindObjectOfType<>`
+   - D. Use `instance = new Singleton()`
+
+> A. Awake() runs before Start() and ensures the singleton is assigned before other scripts try to access it.
+
+3. A developer added a `List<GameObject>` and keeps adding objects without removing them. What issue might arise?
+   - A. Memory leak due to unmanaged memory
+   - B. GC pressure and performance drop
+   - C. Stack overflow
+   - D. Shader compilation error
+
+> B. Continuously adding to a list without cleanup increases memory usage and triggers garbage collection.
+
+4. A lead added a `ScriptableObject` for shared settings, but changes at runtime don’t persist. Why?
+   - A. ScriptableObjects are not saved at runtime
+   - B. The object is not marked as static
+   - C. The object is not in the Resources folder
+   - D. The object is missing a collider
+
+>  A. Changes to ScriptableObjects during runtime are not persisted unless manually saved to disk.
+
+5. A developer used `GetComponent<>()` inside a loop every frame. What’s the best optimization?
+   - A. Move it to `Awake()` or `Start()` and cache the reference
+   - B. Use `FindObjectOfType<>` instead
+   - C. Use `Resources.Load()`
+   - D. Use `transform.Find()`
+
+> A. GetComponent<>() is expensive and should not be called repeatedly in performance-critical loops.
+
+---
+
+### 🎮 **Section 2: Rendering, Physics & Performance (5 Questions)**
+
+6. A scene has many dynamic lights and shadows. What’s a quick way to improve performance?
+   - A. Use baked lighting
+   - B. Increase shadow resolution
+   - C. Use HDRP
+   - D. Add more cameras
+
+> A. Baked lighting reduces runtime calculations and improves performance, especially for static environments.
+
+7. A developer added a Rigidbody and manually sets `transform.position`. What’s the issue?
+   - A. Rigidbody will ignore physics simulation
+   - B. Rigidbody will interpolate position
+   - C. Rigidbody will apply gravity twice
+   - D. Rigidbody will freeze rotation
+
+> A. Manually setting transform.position bypasses physics and can cause unpredictable behavior. 
+
+8. A game has frequent frame drops during camera movement. What should you check first?
+   - A. Post-processing effects
+   - B. Camera culling mask
+   - C. Physics timestep
+   - D. Animator update mode
+
+> A. Effects like bloom, motion blur, and ambient occlusion can heavily impact frame rate during camera movement.
+
+9. A lead added `Resources.Load()` in `Update()` to load textures. What’s the fix?
+   - A. Use Addressables and load asynchronously
+   - B. Move it to `LateUpdate()`
+   - C. Use `Resources.UnloadUnusedAssets()`
+   - D. Use `Resources.FindObjectsOfTypeAll()`
+
+> A. Resources.Load() is synchronous and should be replaced with Addressables for better performance and scalability.
+
+10. A developer added many colliders to a UI canvas. What’s the performance concern?
+    - A. UI should not use physics colliders
+    - B. Colliders block raycasts
+    - C. Colliders increase draw calls
+    - D. Colliders disable batching
+ 
+> B X A. UI uses raycasting via the EventSystem, not physics colliders, which add unnecessary overhead.
+
+---
+
+### 🧩 **Section 3: UI, Input & Systems Integration (5 Questions)**
+
+11. You want to show a message until a horizontal AR plane is detected. What’s the best check?
+    - A. `ARPlaneManager.trackables.count > 0`
+    - B. `ARSession.state == Ready`
+    - C. `ARAnchorManager.anchors.Count > 0`
+    - D. `ARCameraManager.enabled == true`
+
+> A. This confirms that at least one plane has been detected.
+
+12. A UI button works in the Editor but not on mobile. What should you check?
+    - A. Canvas render mode
+    - B. EventSystem is present
+    - C. Button is inside a Canvas
+    - D. All of the above
+
+> A X D. All listed conditions must be met for UI buttons to work properly on mobile.
+
+13. You want to animate a UI panel sliding in. What’s the best method?
+    - A. `rectTransform.DOAnchorPos(target, duration)`
+    - B. `transform.Translate()`
+    - C. `transform.DOMove()`
+    - D. `transform.localPosition = Vector3.Lerp(...)`
+
+> A. DOTween’s DOAnchorPos() is ideal for animating UI panel movement.
+
+14. A developer used `Input.GetKeyDown()` for mobile touch. What’s the issue?
+    - A. `GetKeyDown()` doesn’t detect touch input
+    - B. It only works with UI buttons
+    - C. It requires a collider
+    - D. It’s deprecated
+
+> A. Mobile touch input should be handled using Input.touchCount and Touch.phase. 
+
+15. You want to detect a long press on a UI element. What’s the best approach?
+    - A. Use `IPointerDownHandler` and track duration in `Update()`
+    - B. Use `OnMouseDown()` and `Invoke()`
+    - C. Use `EventTrigger.OnHold()`
+    - D. Use `Input.GetButton("Fire1")`
+
+> A. This allows you to detect long presses by measuring how long the pointer is held down.
+
+---
+
